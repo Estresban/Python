@@ -118,3 +118,103 @@ Simula obstáculos.
 Añade un aterrizaje automático cuando la batería sea baja.'''
 
 
+
+print("=========================")
+print("     DRON PYTHON")
+print("=========================")
+
+bateria = 100
+en_vuelo = False
+
+while True:
+    print("\nBatería:", bateria, "%")
+    
+    if en_vuelo:
+        print("Estado: EN VUELO")
+    else:
+        print("Estado: EN TIERRA")
+
+    print("\n1. Despegar")
+    print("2. Avanzar")
+    print("3. Retroceder")
+    print("4. Girar a la derecha")
+    print("5. Girar a la izquierda")
+    print("6. Consultar batería")
+    print("7. Aterrizar")
+    print("0. Salir")
+
+    opcion = input("\nOpción: ")
+
+    if opcion == "1":
+        if en_vuelo:
+            print("El dron ya está en vuelo.")
+        elif bateria >= 20:
+            print("\nDron despegando...")
+            en_vuelo = True
+        else:
+            print("Batería insuficiente para despegar.")
+
+    elif opcion == "2":
+        if en_vuelo:
+            bateria -= 5
+            print("\nAvanzando...")
+        else:
+            print("El dron debe estar en vuelo.")
+
+    elif opcion == "3":
+        if en_vuelo:
+            bateria -= 5
+            print("\nRetrocediendo...")
+        else:
+            print("El dron debe estar en vuelo.")
+
+    elif opcion == "4":
+        if en_vuelo:
+            bateria -= 2
+            print("\nGirando a la derecha...")
+        else:
+            print("El dron debe estar en vuelo.")
+
+    elif opcion == "5":
+        if en_vuelo:
+            bateria -= 2
+            print("\nGirando a la izquierda...")
+        else:
+            print("El dron debe estar en vuelo.")
+
+    elif opcion == "6":
+        print("\nBatería:", bateria, "%")
+
+    elif opcion == "7":
+        if en_vuelo:
+            print("\nAterrizando...")
+            en_vuelo = False
+        else:
+            print("El dron ya está en tierra.")
+
+    elif opcion == "0":
+        if en_vuelo:
+            print("Aterrizando antes de salir...")
+            en_vuelo = False
+        print("Programa finalizado.")
+        break
+
+    else:
+        print("Opción no válida.")
+
+    # Comprobar que la batería no baje de cero
+    if bateria < 0:
+        bateria = 0
+
+    # Comprobar si la batería se ha agotado
+    if bateria == 0 and en_vuelo:
+        print("\nBatería agotada.")
+        print("Aterrizaje de emergencia.")
+        en_vuelo = False
+
+    # Avisar cuando la batería sea inferior al 20 %
+    elif bateria < 20:
+        print("ADVERTENCIA: batería baja")
+
+    if opcion in ["2", "3", "4", "5"] and bateria > 0:
+        print("Batería:", bateria, "%")

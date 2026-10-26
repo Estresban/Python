@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "../../Ejemplo"
+		},
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../Ejemplo2"
+		}
+	],
+	"settings": {
+		"python-envs.pythonProjects": [
+			{
+				"path": "python",
+				"envManager": "ms-python.python:venv",
+				"packageManager": "ms-python.python:pip",
+				"workspace": "Documents"
+			}
+		]
+	}
+}

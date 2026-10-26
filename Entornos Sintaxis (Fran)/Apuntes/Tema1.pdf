@@ -1,0 +1,162 @@
+UD1. Entornos de desarrollo en Python
+1. Introducción
+Para desarrollar aplicaciones en Python no basta con conocer la sintaxis del lenguaje. También es importante disponer de herramientas que faciliten la escritura, ejecución, organización y depuración del código.
+
+Aunque un programa Python puede escribirse utilizando cualquier editor de texto, en proyectos reales es habitual utilizar un entorno de desarrollo integrado, conocido habitualmente por sus siglas IDE (Integrated Development Environment).
+
+Un IDE reúne en una misma aplicación diferentes herramientas que ayudan al programador durante todo el proceso de desarrollo.
+
+Entre otras funcionalidades, un IDE puede proporcionar:
+
+Editor de código fuente.
+Resaltado de sintaxis.
+Autocompletado de código.
+Detección de errores.
+Ejecución de programas.
+Depuración de código.
+Terminal integrada.
+Gestión de proyectos.
+Integración con sistemas de control de versiones como Git.
+Gestión de entornos virtuales y dependencias.
+2. ¿Qué es un IDE?
+Un IDE (Integrated Development Environment) es una aplicación que proporciona un conjunto de herramientas destinadas al desarrollo de software.
+
+Su principal objetivo es facilitar el trabajo del programador agrupando en una única interfaz las herramientas que normalmente serían utilizadas de forma independiente.
+
+Por ejemplo, sin utilizar un IDE podríamos escribir nuestro programa en un editor de texto:
+
+print("Hola mundo")
+Guardar el archivo como:
+
+programa.py
+Y posteriormente ejecutarlo desde una terminal:
+
+python programa.py
+Un IDE permite realizar estas operaciones desde una misma aplicación.
+
+!!! info "IDE" Un IDE no es necesario para programar en Python, pero puede aumentar considerablemente la productividad durante el desarrollo de aplicaciones.
+
+3. IDE frente a editor de código
+Un editor de código y un IDE no son exactamente lo mismo.
+
+Un editor de código está principalmente diseñado para escribir y modificar código fuente. Un IDE proporciona además herramientas específicas para desarrollar, ejecutar y depurar aplicaciones.
+
+Característica	Editor de código	IDE
+Edición de código	✅	✅
+Resaltado de sintaxis	✅	✅
+Autocompletado	✅	✅
+Ejecución de programas	Depende	✅
+Depurador	Depende	✅
+Gestión de proyectos	Limitada	✅
+Gestión de entornos Python	Depende	✅
+Integración con Git	Depende	✅
+Actualmente esta diferencia es menos evidente, ya que muchos editores permiten instalar extensiones que incorporan funcionalidades propias de un IDE.
+
+4. IDLE
+Python incluye su propio entorno de desarrollo denominado IDLE (Integrated Development and Learning Environment).
+
+IDLE se instala habitualmente junto con Python y proporciona un entorno sencillo para comenzar a trabajar con el lenguaje.
+
+Dispone principalmente de dos herramientas:
+
+Python Shell
+Permite ejecutar instrucciones Python de forma interactiva.
+
+>>> 5 + 3
+8
+
+>>> nombre = "Ana"
+
+>>> print(nombre)
+Ana
+Es especialmente útil para realizar pruebas rápidas y aprender el funcionamiento de determinadas instrucciones.
+
+Editor
+IDLE también permite crear archivos .py que contienen programas completos.
+
+Por su sencillez, IDLE resulta adecuado para comenzar a aprender Python, aunque para proyectos de mayor tamaño existen alternativas con muchas más funcionalidades.
+
+5. PyCharm
+PyCharm es un IDE especializado en el desarrollo con Python.
+
+Proporciona numerosas herramientas destinadas específicamente al ecosistema Python:
+
+Autocompletado inteligente.
+Análisis del código.
+Detección de errores.
+Refactorización.
+Depurador.
+Terminal integrada.
+Gestión de paquetes.
+Gestión de entornos virtuales.
+Integración con Git.
+Ejecución de pruebas.
+Gestión de proyectos.
+Una característica especialmente interesante es la gestión de los intérpretes de Python y los entornos virtuales directamente desde el IDE.
+
+Esto permite que cada proyecto pueda utilizar sus propias librerías y versiones sin interferir con otros proyectos.
+
+6. Visual Studio Code
+Visual Studio Code (VS Code) es un editor de código que puede ampliar enormemente sus funcionalidades mediante extensiones.
+
+Aunque inicialmente no es un IDE específico de Python, instalando las extensiones adecuadas puede convertirse en un entorno de desarrollo muy completo.
+
+Para trabajar con Python podemos incorporar funcionalidades como:
+
+Autocompletado.
+Ejecución de programas.
+Depuración.
+Formateo de código.
+Análisis estático.
+Jupyter Notebooks.
+Gestión de entornos virtuales.
+Integración con Git.
+Una de sus principales ventajas es que puede utilizarse para trabajar con numerosos lenguajes y tecnologías dentro de una misma herramienta.
+
+7. Otros entornos para Python
+Además de IDLE, PyCharm y Visual Studio Code existen otras herramientas utilizadas para desarrollar aplicaciones Python.
+
+Jupyter Notebook
+Permite combinar código Python, texto, fórmulas y resultados en documentos interactivos.
+
+Es especialmente utilizado en ámbitos como:
+
+Ciencia de datos.
+Inteligencia artificial.
+Análisis de datos.
+Investigación.
+Enseñanza.
+Spyder
+Es un entorno de desarrollo orientado principalmente a programación científica y análisis de datos.
+
+Integra herramientas como un editor, consola interactiva, explorador de variables y visualización de datos.
+
+Editores de texto
+También podemos escribir programas Python utilizando editores más sencillos.
+
+El único requisito es poder guardar el archivo utilizando la extensión:
+
+.py
+Posteriormente podremos ejecutarlo utilizando el intérprete de Python.
+
+8. ¿Qué entorno debemos utilizar?
+No existe un entorno de desarrollo que sea el mejor para todas las situaciones.
+
+La elección dependerá de factores como:
+
+Tipo de proyecto.
+Tamaño de la aplicación.
+Experiencia del programador.
+Lenguajes utilizados.
+Necesidad de extensiones.
+Herramientas de depuración.
+Integración con otras tecnologías.
+Por ejemplo:
+
+Situación	Herramienta posible
+Primeros pasos con Python	IDLE
+Desarrollo profesional con Python	PyCharm
+Desarrollo con varios lenguajes	Visual Studio Code
+Ciencia y análisis de datos	Jupyter / Spyder
+Pruebas rápidas	Python Shell
+!!! tip "Elección del entorno" Lo importante no es únicamente conocer una herramienta concreta, sino comprender qué funcionalidades proporciona y ser capaces de seleccionar el entorno adecuado según las necesidades del proyecto.

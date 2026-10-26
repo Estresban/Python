@@ -1,0 +1,324 @@
+UD3. Gestión de proyectos Python: Git, entornos virtuales y dependencias
+1. Introducción
+Cuando desarrollamos una aplicación, no basta con escribir código que funcione. También debemos organizar los archivos, controlar los cambios, mantener las dependencias del proyecto y facilitar que otras personas puedan instalarlo y ejecutarlo.
+
+En esta unidad aprenderemos a preparar un proyecto Python utilizando:
+
+Git, para registrar los cambios realizados en el código.
+GitHub, como servicio remoto para alojar repositorios y colaborar.
+Entornos virtuales, para aislar las dependencias de cada proyecto.
+pip, para instalar paquetes de Python.
+requirements.txt, para registrar las dependencias necesarias.
+.gitignore, para evitar que Git incluya archivos que no deben versionarse.
+Esta primera parte se centra en preparar y mantener un repositorio con una configuración básica. La creación y gestión de ramas se estudiará en una segunda parte.
+
+2. ¿Qué es el control de versiones?
+El control de versiones permite registrar la evolución de los archivos de un proyecto a lo largo del tiempo. Gracias a él podemos consultar qué ha cambiado, cuándo se hizo un cambio y qué persona lo registró.
+
+Git es un sistema de control de versiones distribuido. Cada repositorio contiene información sobre el historial del proyecto, por lo que no depende de estar conectado continuamente a un servidor remoto para registrar cambios.
+
+2.1. Conceptos básicos
+Concepto Descripción
+
+Repositorio Carpeta de trabajo junto con la información que Git utiliza para controlar sus versiones.
+
+Archivo modificado Archivo cuyo contenido ha cambiado desde la última versión registrada.
+
+Staging area Área donde se seleccionan los cambios que formarán parte del próximo commit.
+
+Commit Registro de un conjunto de cambios acompañado de un mensaje descriptivo.
+
+Repositorio local Copia del repositorio almacenada en nuestro equipo.
+
+Repositorio remoto Copia alojada en un servicio como GitHub.
+
+2.2. Flujo básico de trabajo
+El proceso habitual consiste en modificar archivos, seleccionar los cambios que queremos registrar y crear un commit.
+
+Modificar archivos
+       ↓
+Revisar los cambios
+       ↓
+Añadir cambios al staging
+       ↓
+Crear un commit
+       ↓
+Enviar los cambios al repositorio remoto
+Los comandos que utilizaremos con más frecuencia son:
+
+git status
+git add archivo.py
+git commit -m "Descripción del cambio"
+git push
+git push envía los commits al repositorio remoto. Para utilizarlo, el repositorio debe tener configurado un remoto y debemos disponer de permisos de acceso.
+
+3. Instalar y comprobar Git
+Git debe estar instalado en el equipo para poder utilizar sus comandos desde una terminal.
+
+Para comprobar si está disponible, ejecutamos:
+
+git --version
+Si el sistema muestra un número de versión, Git está instalado y accesible desde la terminal.
+
+En macOS, Git puede instalarse mediante las herramientas de línea de comandos de Xcode o mediante un gestor de paquetes. En Windows se puede instalar Git for Windows y en Linux suele estar disponible desde el gestor de paquetes de la distribución.
+
+3.1. Configurar el nombre y el correo
+Git utiliza un nombre y una dirección de correo para identificar la autoría de los commits. Podemos configurarlos así:
+
+git config --global user.name "Nombre Apellidos"
+git config --global user.email "correo@ejemplo.com"
+La opción --global aplica la configuración a los repositorios del usuario. Si necesitamos una identidad diferente para un repositorio concreto, podemos configurar estos valores dentro de ese repositorio sin utilizar --global.
+
+Para consultar la configuración:
+
+git config --global --list
+Importante: el nombre y el correo se guardan en los metadatos de los commits. Utiliza la identidad adecuada para tus repositorios.
+
+4. Crear o clonar un repositorio
+Hay dos situaciones habituales: comenzar un proyecto desde cero o descargar un repositorio que ya existe.
+
+4.1. Iniciar un repositorio nuevo
+Nos situamos en la carpeta del proyecto y ejecutamos:
+
+git init
+Este comando inicializa un repositorio Git en la carpeta actual. Después podemos comprobar su estado:
+
+git status
+4.2. Clonar un repositorio existente
+Si el repositorio ya está alojado en GitHub, podemos obtener una copia local con:
+
+git clone URL_DEL_REPOSITORIO
+Por ejemplo, la URL tendrá una forma similar a esta:
+
+git clone https://github.com/usuario/proyecto.git
+Git creará una carpeta con el contenido del repositorio y su historial. La URL debe sustituirse por la dirección real del proyecto.
+
+5. Registrar cambios con Git
+Una vez que tenemos el repositorio, podemos modificar los archivos y registrar las versiones que consideremos relevantes.
+
+5.1. Consultar el estado
+git status
+Muestra los archivos nuevos, modificados o preparados para el siguiente commit. Conviene ejecutarlo con frecuencia para saber qué cambios detecta Git.
+
+5.2. Seleccionar los archivos
+Para añadir un archivo concreto al área de preparación:
+
+git add main.py
+Para añadir todos los cambios de la carpeta actual y sus subcarpetas que Git no esté ignorando:
+
+git add .
+Antes de utilizar git add ., es recomendable revisar el estado y comprobar que no se están incluyendo archivos innecesarios.
+
+5.3. Crear un commit
+git commit -m "Añade el programa inicial"
+El mensaje debe resumir de forma clara el cambio realizado. Es preferible registrar cambios relacionados y utilizar mensajes descriptivos, en lugar de acumular todas las modificaciones en un único commit demasiado grande.
+
+5.4. Consultar el historial
+git log --oneline
+Muestra el historial de commits de forma resumida.
+
+5.5. Enviar y recibir cambios
+Para enviar al remoto los commits locales:
+
+git push
+Para descargar e integrar los cambios del remoto en la rama actual:
+
+git pull
+Estos comandos requieren que el repositorio remoto esté configurado y que tengamos los permisos necesarios. Si trabajamos con un repositorio compartido, debemos prestar atención a los cambios de otras personas para evitar conflictos.
+
+6. El archivo .gitignore
+No todos los archivos de una carpeta deben guardarse en Git. Por ejemplo, normalmente no queremos versionar el entorno virtual, archivos temporales, cachés o configuraciones locales del IDE.
+
+El archivo .gitignore indica a Git qué archivos y carpetas debe ignorar cuando todavía no están siendo controlados por el repositorio.
+
+Para un proyecto Python básico podemos crear un archivo llamado .gitignore en la raíz:
+
+# Entornos virtuales
+.venv/
+venv/
+
+# Archivos temporales de Python
+__pycache__/
+*.py[cod]
+
+# Configuración local de editores e IDE
+.idea/
+.vscode/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Entornos y salidas generadas
+.env
+site/
+La carpeta site/ se incluye aquí porque MkDocs la utiliza para generar la web estática. Si el proyecto no utiliza MkDocs, esa regla se puede quitar.
+
+Importante: .gitignore no deja de versionar archivos que Git ya está siguiendo. Si un archivo ya está registrado en el repositorio, añadirlo después a .gitignore no basta para dejar de controlarlo.
+
+Tampoco se deben subir contraseñas, tokens ni otras credenciales al repositorio. Ignorar un archivo ayuda a evitar que se añada accidentalmente, pero no sustituye una gestión segura de los secretos.
+
+7. Entornos virtuales en Python
+Un entorno virtual es un directorio que contiene una instalación aislada de los paquetes de Python que necesita un proyecto. Permite que dos proyectos utilicen versiones diferentes de una misma biblioteca sin interferir entre sí.
+
+Por ejemplo, una aplicación puede necesitar una versión de Django y otra aplicación una versión diferente. Si ambas dependen de la instalación global, pueden surgir incompatibilidades. Los entornos virtuales permiten separar estas dependencias.
+
+7.1. Crear un entorno virtual
+Desde la raíz del proyecto ejecutamos:
+
+python3 -m venv .venv
+En Windows, según la instalación disponible, el comando puede ser:
+
+py -m venv .venv
+La carpeta .venv contendrá el entorno virtual. Se suele utilizar ese nombre para identificarlo fácilmente y mantenerlo dentro del directorio del proyecto.
+
+7.2. Activar el entorno virtual
+macOS y Linux:
+
+source .venv/bin/activate
+Windows (PowerShell):
+
+.\.venv\Scripts\Activate.ps1
+Windows (CMD):
+
+.venv\Scripts\activate.bat
+Cuando el entorno está activo, la terminal suele mostrar (.venv) al principio de la línea. A partir de ese momento, los comandos python y pip utilizarán normalmente el entorno virtual activo.
+
+Para comprobar qué intérprete se está utilizando, podemos ejecutar:
+
+python --version
+En macOS y Linux también podemos consultar la ruta del ejecutable:
+
+which python
+En Windows:
+
+where.exe python
+7.3. Desactivar el entorno
+Cuando terminemos de trabajar, podemos desactivarlo con:
+
+deactivate
+Desactivarlo no elimina el entorno virtual ni los paquetes instalados en él.
+
+7.4. ¿Por qué no se sube .venv a GitHub?
+La carpeta .venv contiene archivos específicos del equipo y puede ocupar bastante espacio. Además, se puede volver a crear a partir de la versión de Python y de las dependencias del proyecto.
+
+Por eso, lo habitual es añadir .venv/ al .gitignore y no subirla al repositorio. Lo que compartimos es la información necesaria para reconstruir el entorno, no la carpeta completa.
+
+8. Instalar paquetes con pip
+pip es la herramienta habitual para instalar y administrar paquetes de Python desde repositorios de paquetes como PyPI.
+
+Con el entorno virtual activado, podemos instalar una biblioteca:
+
+python -m pip install requests
+Utilizar python -m pip ayuda a ejecutar pip asociado al intérprete de Python que estamos utilizando.
+
+Para comprobar los paquetes instalados:
+
+python -m pip list
+Para consultar información sobre un paquete concreto:
+
+python -m pip show requests
+Para actualizar pip dentro del entorno:
+
+python -m pip install --upgrade pip
+Instala las dependencias dentro del entorno virtual del proyecto para evitar modificar innecesariamente la instalación global de Python.
+
+9. El archivo requirements.txt
+El archivo requirements.txt permite indicar las dependencias que necesita un proyecto. Así, otra persona puede instalar los paquetes necesarios sin tener que descubrirlos uno por uno.
+
+9.1. Generar el archivo
+Con el entorno virtual activado y las dependencias del proyecto instaladas, ejecutamos:
+
+python -m pip freeze > requirements.txt
+Esto guarda en requirements.txt la lista de paquetes instalados y sus versiones. Es útil para reproducir el entorno, aunque en proyectos grandes conviene revisar el resultado para asegurarse de que recoge las dependencias apropiadas.
+
+Un archivo podría contener, por ejemplo:
+
+requests==2.32.3
+El número de versión es ilustrativo: la versión real dependerá de lo que se haya instalado en el entorno.
+
+9.2. Instalar las dependencias desde el archivo
+Cuando otra persona clona el proyecto, puede crear y activar su propio entorno virtual e instalar las dependencias con:
+
+python -m pip install -r requirements.txt
+El parámetro -r indica que pip debe leer los requisitos del archivo especificado.
+
+9.3. Flujo de trabajo recomendado
+Cuando añadimos una nueva dependencia al proyecto:
+
+Activamos el entorno virtual.
+Instalamos el paquete con python -m pip install nombre_paquete.
+Probamos que la aplicación funciona.
+Actualizamos requirements.txt.
+Registramos en Git los archivos del proyecto y requirements.txt.
+No se debe incluir la carpeta .venv en el repositorio, pero sí conviene versionar requirements.txt cuando forma parte de la forma acordada de instalar el proyecto.
+
+10. Estructura recomendada del proyecto
+Un proyecto sencillo puede organizarse así:
+
+mi_proyecto/
+├── .venv/                 # Entorno virtual: no se sube a Git
+├── .git/                  # Información interna de Git
+├── .gitignore             # Archivos que Git debe ignorar
+├── main.py                # Código principal
+└── requirements.txt       # Dependencias del proyecto
+La carpeta .git/ se crea al inicializar o clonar el repositorio. No debemos editar manualmente su contenido.
+
+A medida que la aplicación crezca, podremos organizar el código en paquetes y módulos. La estructura concreta dependerá de las necesidades del proyecto.
+
+11. Flujo completo de preparación
+Estos son los pasos habituales para preparar un proyecto Python que ya tenemos en una carpeta local:
+
+# 1. Crear el entorno virtual
+python3 -m venv .venv
+
+# 2. Activarlo en macOS o Linux
+source .venv/bin/activate
+
+# 3. Actualizar pip
+python -m pip install --upgrade pip
+
+# 4. Instalar las dependencias necesarias
+python -m pip install requests
+
+# 5. Registrar las dependencias
+python -m pip freeze > requirements.txt
+
+# 6. Revisar los archivos detectados por Git
+git status
+
+# 7. Preparar los cambios
+git add .gitignore requirements.txt main.py
+
+# 8. Crear un commit
+git commit -m "Prepara el entorno inicial del proyecto"
+Si el proyecto aún no es un repositorio, antes de registrar los cambios habrá que ejecutar git init. Si ya se ha clonado desde GitHub, no es necesario inicializarlo de nuevo.
+
+Los comandos del ejemplo presuponen que existe main.py, que el archivo .gitignore ya se ha creado y que Git está configurado. Si los nombres de los archivos son diferentes, adapta el comando git add.
+
+12. Actividad práctica
+Crea un pequeño proyecto Python llamado gestion_tareas y prepara su control de versiones y entorno de desarrollo.
+
+Tareas
+Crea una carpeta para el proyecto e inicializa un repositorio Git, o clona un repositorio vacío preparado para la actividad.
+Crea un archivo main.py que muestre un mensaje por pantalla.
+Crea un entorno virtual llamado .venv y actívalo.
+Instala el paquete requests dentro del entorno virtual.
+Genera el archivo requirements.txt.
+Crea un .gitignore que excluya .venv/, __pycache__/ y .idea/.
+Comprueba con git status que el entorno virtual no aparece como un conjunto de archivos pendientes de añadir.
+Añade los archivos necesarios y crea un commit con un mensaje descriptivo.
+Si trabajas con un repositorio remoto, envía los cambios con git push.
+Explica qué archivos has versionado, cuáles has excluido y por qué.
+Entrega
+Entrega la URL del repositorio y una breve explicación de los pasos realizados. No incluyas la carpeta .venv ni credenciales personales en la entrega.
+
+13. Ideas clave
+Git registra la evolución del proyecto mediante commits.
+GitHub permite alojar repositorios remotos y compartir el código.
+.gitignore evita incorporar archivos innecesarios que todavía no están bajo seguimiento.
+Un entorno virtual separa las dependencias de cada proyecto.
+pip permite instalar paquetes de Python.
+requirements.txt documenta las dependencias para que el entorno pueda reconstruirse.
+La carpeta .venv normalmente no se sube al repositorio; el archivo requirements.txt, sí.
+En la segunda parte se abordará el trabajo con ramas, su creación, el cambio entre ramas, la integración de cambios y el flujo de colaboración.

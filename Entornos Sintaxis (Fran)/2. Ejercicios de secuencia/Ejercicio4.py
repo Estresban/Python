@@ -23,12 +23,12 @@ opcion = input("Elige una conversión (1 o 2): ")
 if opcion == "1":
     centigrados = float(input("Introduce la temperatura en º Centigrados: "))
     resultado = centigrados_a_fahrenheit(centigrados)
-    print(f"{centigrados} °C equivalen a {resultado:.2f} °F")
+    print(f"{centigrados} °C son {resultado:.2f} °F")
 
 elif opcion == "2":
     fahrenheit = float(input("Introduce la temperatura en Fahrenheit: "))
     resultado = fahrenheit_a_centigrados(fahrenheit)
-    print(f"{fahrenheit} °F equivalen a {resultado:.2f} °C")
+    print(f"{fahrenheit} °F son {resultado:.2f} °C")
 
 else:
     print("Hay que ser tonto para elegir una opción no válida.")

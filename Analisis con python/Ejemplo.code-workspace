@@ -1,13 +1,13 @@
 {
 	"folders": [
 		{
-			"path": "../../Ejemplo"
+			"path": "../Ejemplo"
 		},
 		{
-			"path": "../.."
+			"path": ".."
 		},
 		{
-			"path": "../../Ejemplo2"
+			"path": "../Ejemplo2"
 		}
 	],
 	"settings": {
@@ -16,8 +16,8 @@
 				"path": "python",
 				"envManager": "ms-python.python:venv",
 				"packageManager": "ms-python.python:pip",
-				"workspace": "Documents"
+				"workspace": "Documents/Python"
 			}
 		]
 	}
-}
+} 

@@ -1,13 +1,13 @@
 {
 	"folders": [
 		{
-			"path": "Analisis con python/Ejemplo 1"
+			"path": "../Analisis con python/Ejemplo 1"
 		},
 		{
-			"path": ".."
+			"path": "../Analisis con python"
 		},
 		{
-			"path": "Analisis con python/Ejemplo 2"
+			"path": "../Analisis con python/Ejemplo 2"
 		}
 	],
 	"settings": {

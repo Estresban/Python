@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "../Analisis con python/Ejemplo 1"
+		},
+		{
+			"path": "../Analisis con python"
+		},
+		{
+			"path": "../Analisis con python/Ejemplo 2"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"python-envs.pythonProjects": [
+			{
+				"path": "python",
+				"envManager": "ms-python.python:venv",
+				"packageManager": "ms-python.python:pip",
+				"workspace": "Documents/Python"
+			}
+		]
+	}
+} 

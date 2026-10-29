@@ -22,6 +22,6 @@ class Proyecto:
             print(tarea.titulo, "-", tarea.estado)
 
 
-    def anadir_tarea(self, tarea: Tarea) -> None:
+    def añadir_tarea(self, tarea: Tarea) -> None:
         # Añade una tarea a la lista del proyecto.
         self.tareas.append(tarea)

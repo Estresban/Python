@@ -1,4 +1,4 @@
-from tarea import Tarea
+import Tarea
 
 class Proyecto:
 

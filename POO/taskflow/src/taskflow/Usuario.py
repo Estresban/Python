@@ -13,7 +13,7 @@ class Usuario:
         for tarea in lista_tareas:
             if tarea.responsable == self:
                 encontradas += 1
-                print(f"  {encontradas}. Estado: {tarea.estado} | Prioridad: {tarea.prioridad}")
+                print(f"  {encontradas}.Titulo: {tarea.titulo} | Estado: {tarea.estado} | Prioridad: {tarea.prioridad}")
 
         if encontradas == 0:
             print("  No tienes tareas asignadas.")

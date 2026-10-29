@@ -1,7 +1,9 @@
 from datetime import date
 
 class Tarea:
-    def __init__(self, responsable=None, prioridad="MEDIA"):
+    def __init__(self, titulo: str, descripcion: str, responsable=None, prioridad="MEDIA"):
+        self.titulo: str = titulo
+        self.descripcion: str = descripcion
         self.estado: str = "PENDIENTE"
         self.responsable = responsable
         self.fecha_creacion: date = date.today()

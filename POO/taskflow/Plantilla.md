@@ -58,84 +58,84 @@ Por ejemplo, añadir Comentario por si los usuarios necesitan comunicarse dentro
 
 ### 1. PROYECTO.
 
--Nombre: para identificar el proyecto.
--Descripción: para conocer qué se va a desarrollar.
--Tareas: para saber qué tareas pertenecen al proyecto.
+-Nombre: para identificar el proyecto.  
+-Descripción: para conocer qué se va a desarrollar.  
+-Tareas: para saber qué tareas pertenecen al proyecto.  
 
 ### 2. USUARIO.
 
--Nombre: para identificar a la persona.
--Correo electrónico: para distinguir a los usuarios y disponer de una forma de contacto.
--Tareas asignadas: para conocer qué tareas tiene asignadas.
+-Nombre: para identificar a la persona.  
+-Correo electrónico: para distinguir a los usuarios y disponer de una forma de comunicacion.  
+-Tareas asignadas: para conocer qué tareas tiene asignadas.  
 
 ### 3. TAREA.
 
--Título: para identificar el trabajo que se debe realizar.
--Descripción: para explicar en qué consiste.
--Estado: para saber si está pendiente, en progreso o completada.
--Responsable: para conocer qué usuario tiene asignada la tarea.
+-Título: para identificar el trabajo que se debe realizar.  
+-Descripción: para explicar en qué consiste.  
+-Estado: para saber si está pendiente, en progreso o completada.  
+-Responsable: para conocer qué usuario tiene asignada la tarea.  
 
 ### 4. OTRAS ENTIDADES.
 
 Se pueden incluir las entidades propuestas, sus estados podrían ser 
 
--**Comentario**: Contenido, autor y tarea relacionada.
--**Notificación**: Mensaje, usuario destinatario y estado de lectura.
--**Historial**: Tarea relacionada, estado anterior, estado nuevo y usuario que realizó el cambio
--**Prioridad**: No necesita ser una entidad. Puede ser un atributo de Tarea, pero solo sería necesaria si debe distinguir entre tareas más y menos urgentes.
--**Fecha**: puede ser un atributo de Tarea, porque indicaria la fecha de creación, aunque podríamos crearla como un objeto, y determinar distintas fechas, de creación, actualizaciones, o terminación.
+-**Comentario**: Contenido, autor y tarea relacionada.  
+-**Notificación**: Mensaje, usuario destinatario y estado de lectura.  
+-**Historial**: Tarea relacionada, estado anterior, estado nuevo y usuario que realizó el cambio.  
+-**Prioridad**: No necesita ser una entidad. Puede ser un atributo de Tarea, pero solo sería necesaria si debe distinguir entre tareas más y menos urgentes.  
+-**Fecha**: puede ser un atributo de Tarea, porque indicaria la fecha de creación, aunque podríamos crearla como un objeto, y determinar distintas fechas, de creación, actualizaciones, o terminación.  
 
 ## Parte 3. Identificar el comportamiento
 
 Identificamos las acciones que puede realizar cada objeto de la aplicación.
 
-**PROYECTO**
+**PROYECTO**  
+Puede:  
+-crear tareas  
+-consultar sus tareas  
+-eliminar tareas  
+
+**USUARIO**  
+Puede:  
+-registrarse  
+-consultar sus tareas asignadas  
+-recibir tareas asignadas  
+
+**TAREA**  
 Puede:
--crear tareas
--consultar sus tareas
--eliminar tareas
+-iniciar  
+-completar  
+-reasignarse  
+-cambiar de estado  
+-actualizar su descripción  
 
-**USUARIO**
-Puede:
--registrarse
--consultar sus tareas asignadas
--recibir tareas asignadas
+**COMENTARIO**  
+Puede:  
+-crearse  
+-editarse  
+-eliminarse  
 
-**TAREA**
-Puede:
-iniciar
-completar
-reasignarse
-cambiar de estado
-actualizar su descripción
+**NOTIFICACIÓN**  
+Puede:  
+-enviarse  
+-marcarse como leída  
 
-**COMENTARIO**
-Puede:
-crearse
-editarse
-eliminarse
+**HISTORIAL**  
+Puede:  
+-registrar un cambio de estado  
+-consultar los cambios realizados  
 
-**NOTIFICACIÓN**
-Puede:
-enviarse
-marcarse como leída
+**PRIORIDAD**  
+Si la prioridad es un atributo de Tarea, no necesita comportamientos propios. La tarea puede:  
+-cambiar de prioridad  
+-consultar su prioridad actual  
 
-**HISTORIAL**
-Puede:
-registrar un cambio de estado
-consultar los cambios realizados
-
-**PRIORIDAD**
-Si la prioridad es un atributo de Tarea, no necesita comportamientos propios. La tarea puede:
-cambiar de prioridad
-consultar su prioridad actual
-
-**FECHA**
-Si consideramos la fecha como un atributo de Tarea o Historial, sus comportamientos podrían ser:
-registrar la fecha de creación
-actualizar la fecha de modificación
-registrar la fecha de finalización
-consultar las fechas de la tarea
+**FECHA**  
+Si consideramos la fecha como un atributo de Tarea o Historial, sus comportamientos podrían ser:  
+-registrar la fecha de creación  
+-actualizar la fecha de modificación  
+-registrar la fecha de finalización  
+-consultar las fechas de la tarea  
 
 ## Parte 4. Responsabilidades
 

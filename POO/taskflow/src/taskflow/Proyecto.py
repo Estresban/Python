@@ -10,17 +10,19 @@ class Proyecto:
     # Métodos públicos
     def crear_tarea(self, titulo: str, descripcion: str) -> None:
         # Insta una nueva Tarea y la añade al proyecto.
-        tarea = Tarea()
-        tarea.titulo = titulo
-        tarea.descripcion = descripcion
+        tarea = Tarea(titulo=titulo, descripcion=descripcion)
         self.tareas.append(tarea)
 
 
     def consultar_tarea(self) -> None:
         # Muestra las tareas
-        for tarea in self.tareas:
-            print(tarea.titulo, "-", tarea.estado)
+        if not self.tareas:
+            print("El proyecto no tiene tareas.")
+            return
 
+        for tarea in self.tareas:
+            print(tarea.titulo, "-", tarea.estado, "-", tarea.prioridad)
+            print("--------------------")
 
     def añadir_tarea(self, tarea: Tarea) -> None:
         # Añade una tarea a la lista del proyecto.

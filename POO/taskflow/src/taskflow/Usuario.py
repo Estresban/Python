@@ -6,7 +6,7 @@ class Usuario:
         self._correo: str = correo
         
         # Metodos publicos
-    def consultar_tarea_asignada(self, lista_tareas) -> None:
+    def consultar_tarea_asignada(self, lista_tareas: list) -> None:
         print(f"\nTareas asignadas a {self._nombre}:")
 
         encontradas = 0

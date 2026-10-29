@@ -139,12 +139,109 @@ Si consideramos la fecha como un atributo de Tarea o Historial, sus comportamien
 
 ## Parte 4. Responsabilidades
 
+Cada acción debe ser responsabilidad del objeto que tiene la información y el control para realizarla.
+Por ejemplo, completar una tarea debería ser responsabilidad de Tarea, porque es la propia tarea la que conoce su estado actual y debe actualizarlo.
+
+| Acción                         | Objeto responsable | ¿Por qué?                                                                  |
+| ------------------------------ | ------------------ | -------------------------------------------------------------------------- |
+| Completar una tarea            | Tarea              | Porque conoce su estado y puede cambiarlo a COMPLETADA.                    |
+| Iniciar una tarea              | Tarea              | Porque puede cambiar su estado de PENDIENTE a EN PROGRESO.                 |
+| Asignar responsable            | Tarea              | Porque la tarea necesita conocer qué usuario es responsable de realizarla. |
+| Crear proyecto                 | main.py            | Porque puede iniciar la aplicación y crear una instancia de Proyecto.      |
+| Añadir una tarea al proyecto   | Proyecto           | Porque es el proyecto el que contiene y organiza sus tareas.               |
+| Cambiar el estado de una tarea | Tarea              | Porque es responsable de mantener actualizado su propio estado.            |
+
+-**Tarea**: gestiona sus propios cambios, su estado y su responsable.  
+-**Usuario**: representa a la persona que realiza las tareas y permite consultar las tareas asignadas.  
+-**Proyecto**: organiza las tareas que forman parte del proyecto.  
+-**main.py**: crea objetos y solicita que se realicen acciones. No debería contener toda la lógica.  
+
 
 ## Parte 5. Diseñar el modelo
+
+Reuniendo las decisiones anteriores: los objetos principales, sus atributos, sus comportamientos y las responsabilidades de cada clase.
+1. Modelo conceptual
+
+**PROYECTO**
+Información(atributos)  
+*nombre  
+*descripción  
+Comportamientos (métodos)  
++crear tareas()  
++añadir tareas()  
++consultar tareas()  
+contiene una o varias tareas  
+
+**TAREA**  
+Información(atributos)  
+*título  
+*descripción  
+*estado  
+*responsable  
+*fecha de creación  
+*fecha de modificación  
+*fecha de finalización  
+*prioridad (opcional)  
+Comportamientos (métodos)  
++iniciar()  
++completar()  
++cambiar estado()  
++asignar responsable()  
++actualizar descripción()  
++cambiar prioridad()  
+
+**USUARIO**  
+Información(atributos)  
+*nombre  
+*correo electrónico  
+Comportamientos (métodos)  
++consultar tareas asignadas()  
+
+2. Decisiones de diseño
+
+-**Fecha**: será un atributo de Tarea. Si necesitamos registrar múltiples cambios, podremos añadir una clase Historial.  
+-**Prioridad**: será un atributo opcional de Tarea, porque no es imprescindible para los requisitos iniciales.  
+-**Comentarios y notificaciones**: se dejarán para una futura ampliación.  
+**Responsabilidades**:  
+cada clase gestiona las acciones de su función; main.py coordina la ejecución.  
 
 
 ## Parte 6. Diseñar las clases con UML
 
+
+```mermaid
+classDiagram
+    class Proyecto {
+        -String titulo
+        -String descripcion
+        +crearTarea() None
+        +consultarTarea() None
+        +anadirTarea() None
+    }
+
+    class Tarea {
+        -String estado
+        -Usuario responsable
+        -Date fechaCreacion
+        -Date fechaModificacion
+        -Date fechaFinalizacion
+        -String prioridad
+        +iniciar() None
+        +completar() None
+        +asignar() None
+        +cambiarEstado() None
+        +cambiarPrioridad() None
+    }
+
+    class Usuario {
+        -String nombre
+        -String correo
+        +consultarTareaAsignada() None
+    }
+
+    Proyecto "1" --> "*" Tarea : gestiona
+    Usuario "1" --> "*" Tarea : responsable
+```
 
 ## Parte 7. Primera implementación con Python
 

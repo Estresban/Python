@@ -4,7 +4,8 @@ class Usuario:
         # Atributos privados
         self._nombre: str = nombre
         self._correo: str = correo
-
+        
+        # Metodos publicos
     def consultar_tarea_asignada(self, lista_tareas) -> None:
         print(f"\nTareas asignadas a {self._nombre}:")
 

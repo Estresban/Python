@@ -1,3 +1,5 @@
+from tarea import Tarea
+
 class Proyecto:
 
     def __init__(self, titulo: str, descripcion: str):

@@ -15,14 +15,10 @@ class Usuario:
         print(f"Usuario {self._nombre} registrado con éxito.")
 
     # Recibir Tareas
-    def recibir_tarea(self, titulo: str, estado: str, prioridad: str):
-        nueva_tarea = {
-            "titulo": titulo,
-            "estado": estado,
-            "prioridad": prioridad
-        }
-        self.tareas_asignadas.append(nueva_tarea)
-        print(f"Tarea '{titulo}' recibida por {self._nombre}.")      
+    def recibir_tarea(self, tarea: Tarea):
+        
+        self.tareas_asignadas.append(tarea)
+        print(f"Tarea '{tarea.titulo}' recibida por {self._nombre}.")      
     
     # Consultar Tareas Asignadas
     def consultar_tarea_asignada(self, lista_tareas: list) -> None:

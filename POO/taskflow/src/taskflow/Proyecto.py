@@ -27,3 +27,13 @@ class Proyecto:
     def añadir_tarea(self, tarea: Tarea) -> None:
         # Añade una tarea a la lista del proyecto.
         self.tareas.append(tarea)
+
+    #Eliminar tareas
+    def eliminar_tarea(self, titulo: str) -> None:
+        # Elimina una tarea del proyecto por su título.
+        for tarea in self.tareas:
+            if tarea.titulo == titulo:
+                self.tareas.remove(tarea)
+                print(f"Tarea '{titulo}' eliminada del proyecto.")
+                return
+        print(f"No se encontró la tarea '{titulo}' en el proyecto.")

@@ -1,3 +1,5 @@
+from tarea import Tarea
+
 class Usuario:
 
     def __init__(self, nombre: str, correo: str):

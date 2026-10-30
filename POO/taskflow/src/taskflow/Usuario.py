@@ -4,8 +4,27 @@ class Usuario:
         # Atributos privados
         self._nombre: str = nombre
         self._correo: str = correo
-        
-        # Metodos publicos
+        self.tareas_asignadas: list = []
+
+    # Metodos publicos
+
+    # Registrar Usuarios
+    def registrar_usuario(self, nombre: str, correo: str):
+        self._nombre = nombre
+        self._correo = correo
+        print(f"Usuario {self._nombre} registrado con éxito.")
+
+    # Recibir Tareas
+    def recibir_tarea(self, titulo: str, estado: str, prioridad: str):
+        nueva_tarea = {
+            "titulo": titulo,
+            "estado": estado,
+            "prioridad": prioridad
+        }
+        self.tareas_asignadas.append(nueva_tarea)
+        print(f"Tarea '{titulo}' recibida por {self._nombre}.")      
+    
+    # Consultar Tareas Asignadas
     def consultar_tarea_asignada(self, lista_tareas: list) -> None:
         print(f"\nTareas asignadas a {self._nombre}:")
 

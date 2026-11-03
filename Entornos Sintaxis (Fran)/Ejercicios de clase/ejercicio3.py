@@ -53,3 +53,43 @@ Si responde s, añade 5 € al total.
 Si responde n, no añadas nada.
 Actualiza el resumen final para mostrar el precio de la foto y el nuevo total.'''
 
+nombre = input("Introduce tu nombre: ")
+edad = int(input("Introduce tu edad: "))
+comida = input("¿Quieres añadir un menú por 8 euros? (s/n): ")
+foto = input("¿Quieres comprar una foto de recuerdo por 5 euros? (s/n): ")  
+
+PRECIO_ENTRADA = 30.00
+FOTO_PRECIO = 5.00
+MENU_PRECIO = 8.00  
+
+if edad < 4:
+    precio_entrada = 0.00  
+else:
+    if edad >= 4 and edad <= 12:
+        precio_entrada = PRECIO_ENTRADA * 0.7
+    else:
+        if edad > 12 and edad < 65:
+            precio_entrada = PRECIO_ENTRADA
+        else:
+            if edad >= 65:
+                precio_entrada = PRECIO_ENTRADA * 0.8
+
+if comida == "s" or comida == "S":
+    precio_menu = MENU_PRECIO
+    precio_subtotal = precio_entrada + precio_menu
+    print(f"Precio con menú: {precio_subtotal:.2f} €")
+else:
+    precio_menu = 0.00
+    print(f"Precio sin menú: {precio_entrada:.2f} €")
+
+if foto == "s" or foto == "S":
+    precio_foto = FOTO_PRECIO
+    precio_completo = precio_entrada + precio_menu + precio_foto
+    print(f"Precio con foto: {precio_completo:.2f} €")
+else:
+    precio_foto = 0.00
+    print(f"Precio sin foto: {precio_entrada + precio_menu:.2f} €")
+
+
+subtotal = precio_entrada + precio_menu
+total = subtotal + precio_foto

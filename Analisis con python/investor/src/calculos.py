@@ -157,5 +157,17 @@ print("Posición del máximo de los precios:", posicion_maximo)
 posicion_minimo = np.argmin(precios)
 print("Posición del mínimo de los precios:", posicion_minimo)
 
+orden_ascendente = np.sort(precios)
+print("Precios ordenados de menor a mayor:", orden_ascendente)
+
+orden_descendente = np.sort(precios)[::-1]
+print("Precios ordenados de mayor a menor:", orden_descendente)
+
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6]) 
+
+c= np.concatenate((a, b))
+print("Concatenación de a y b:", c)
+
 
 

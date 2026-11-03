@@ -170,4 +170,8 @@ c= np.concatenate((a, b))
 print("Concatenación de a y b:", c)
 
 
+import numpy as np
 
+# Muestra una lista con todos los atributos y funciones de NumPy
+funciones_numpy = dir(np)
+print(funciones_numpy)

@@ -2,7 +2,6 @@ from tarea import Tarea
 
 class Proyecto:
     def __init__(self,identificador: str, titulo: str, descripcion: str, estado_proyecto: str = "Iniciado"):
-        # Atributos privados
         self.identificador: str = identificador
         self.titulo: str = titulo
         self.descripcion: str = descripcion
@@ -10,9 +9,9 @@ class Proyecto:
         # Lista para almacenar los objetos de tipo Tarea
         self.tareas: list = []
     # Métodos públicos
-    def crear_tarea(self, titulo: str, descripcion: str) -> None:
+    def crear_tarea(self, ID_tarea:str,titulo: str, descripcion: str) -> None:
         # Insta una nueva Tarea y la añade al proyecto.
-        tarea = Tarea(titulo=titulo, descripcion=descripcion)
+        tarea = Tarea(ID_tarea = ID_tarea, proyecto = self.identificador, titulo=titulo, descripcion=descripcion)
         self.tareas.append(tarea)
 
 
@@ -23,22 +22,17 @@ class Proyecto:
             return
 
         for tarea in self.tareas:
-            print(tarea.titulo, "-", tarea.estado, "-", tarea.prioridad)
+            print(f"{tarea.ID_tarea} - {tarea.titulo} - {tarea.estado} - {tarea.prioridad}")
             print("--------------------")
 
-    def añadir_tarea(self, tarea: Tarea) -> None:
-        # Añade una tarea a la lista del proyecto.
-        self.tareas.append(tarea)
-
     #Eliminar tareas
-    def eliminar_tarea(self, titulo: str) -> None:
-        # Elimina una tarea del proyecto por su título.
+    def eliminar_tarea(self, ID_tarea: str) -> None:
         for tarea in self.tareas:
-            if tarea.titulo == titulo:
+            if tarea.ID_tarea == ID_tarea:
                 self.tareas.remove(tarea)
-                print(f"Tarea '{titulo}' eliminada del proyecto.")
+                print(f"Tarea '{ID_tarea}' eliminada del proyecto.")
                 return
-        print(f"No se encontró la tarea '{titulo}' en el proyecto.")
+        print(f"No se encontró la tarea '{ID_tarea}' en el proyecto.")
         
     def cambiar_estado(self, nuevo_estado: str) -> None:
         estados_validos = ["Iniciado", "Finalizado"]

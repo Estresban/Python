@@ -1,7 +1,9 @@
 from datetime import date
 
 class Tarea:
-    def __init__(self, titulo: str, descripcion: str, responsable=None, prioridad="MEDIA"):
+    def __init__(self, ID_tarea: str, proyecto: str, titulo: str, descripcion: str, responsable=None, prioridad="MEDIA"):
+        self.ID_tarea: str = ID_tarea
+        self.proyecto: str = proyecto
         self.titulo: str = titulo
         self.descripcion: str = descripcion
         self.estado: str = "PENDIENTE"

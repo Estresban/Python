@@ -42,12 +42,14 @@ Voy a analizarlo desde el punto de vista del análisis orientado a objetos, sin 
 
 **1. ¿Qué decisiones parecen coherentes?**  
 Hay varias decisiones bien encaminadas.  
+
 **A. Separar Proyecto, Usuario y Tarea**  
 Es una buena decisión porque representan conceptos diferentes del dominio:   
 Proyecto: agrupa y organiza tareas.  
 Usuario: representa a la persona que utiliza la aplicación y puede tener tareas asignadas.  
 Tarea: representa una unidad de trabajo que tiene un estado, una prioridad y un responsable potencial.  
 Las tres entidades tienen sentido y están relacionadas entre sí.  
+
 **B. Los estados de Tarea**  
 Los estados que has propuesto son coherentes:  
 Pendiente.-En progreso.-Completada.  
@@ -57,9 +59,11 @@ Son dos conceptos diferentes:
 El estado indica en qué situación se encuentra una tarea.  
 La prioridad indica qué importancia tiene o qué urgencia se le atribuye.  
 Por tanto, una tarea puede estar pendiente y tener prioridad alta, por ejemplo.  
+
 **C. Registrar fechas de creación**  
 Es una buena decisión registrar cuándo se crean los proyectos y las tareas.  
 Te permitirá conocer la antigüedad de los elementos, ordenar información cronológicamente y, posteriormente, calcular cuánto tiempo llevan abiertos.
+
 **D. Los comportamientos de Tarea**  
 También son coherentes:  
 Iniciar.  
@@ -68,8 +72,10 @@ Asignarse.
 Cambiar de estado.  
 Cambiar prioridad.  
 Son operaciones directamente relacionadas con el ciclo de vida de una tarea.  
+
 **Una observación:**  
 iniciar y completar son acciones que provocan un cambio de estado. Conviene que no se conviertan en dos mecanismos independientes de modificación del estado.
+
 **2. ¿Qué responsabilidades podrían estar mal asignadas?**  
 Aquí hay algunos aspectos que revisaría.  
 
@@ -162,21 +168,24 @@ No lo introduciría simplemente por tener más clases. Lo introduciría porque r
 
 **4. ¿Qué información podría faltar?**  
 Veo algunos datos que sería conveniente valorar.  
-**En Proyecto**  
+
+# **En Proyecto**  
 Identificador único.  
 Nombre del proyecto.  
 Descripción.  
 Fecha de creación.  
 Fecha de modificación.  
 Estado del proyecto, si necesitas distinguir entre activo, finalizado o archivado.  
-**En Usuario**  
+
+# **En Usuario**  
 Identificador único.  
 Nombre.  
 Correo electrónico.  
 Contraseña o mecanismo de autenticación.  
 Fecha de registro.  
 No necesitas necesariamente todos estos atributos desde el primer momento.  
-**En Tarea**  
+
+# **En Tarea**  
 Identificador único.  
 Título.  
 Descripción.  
@@ -192,7 +201,8 @@ Hay dos datos que considero especialmente interesantes:
 Fecha de vencimiento: permite establecer cuándo debería terminar una tarea.  
 Fecha de finalización: permite saber cuándo se terminó realmente, independientemente de cuándo se creó.  
 También deberías decidir si una tarea puede estar sin asignar.  
-**En Historial**   
+
+# **En Historial**   
 Si finalmente incorporas esta clase:  
 Identificador.  
 Fecha y hora.  
@@ -206,15 +216,19 @@ No todos los acontecimientos necesitan obligatoriamente valor anterior y nuevo. 
 
 **5. ¿Qué información podría sobrar?**  
 No veo atributos claramente innecesarios, pero sí algunos elementos que podrían generar redundancia.  
+
 **A. Crear tareas y añadir tareas**  
 Como comentaba anteriormente, debes aclarar si son dos operaciones distintas.
+
 **B. Iniciar, completar y cambiar estado**  
 Podrías terminar teniendo tres operaciones que modifican el mismo atributo.
 No es incorrecto tenerlas, pero deben estar bien diferenciadas.
 Por ejemplo, iniciar y completar pueden ser acciones específicas que cambian el estado internamente.
+
 **C. Fecha de creación y fecha de modificación**  
 No son redundantes.
 La fecha de creación nunca debería cambiar, mientras que la fecha de modificación se actualizaría cuando cambie la información de la entidad.
+
 **D. Guardar demasiada información en Historial**  
 No necesitas duplicar toda la información de una tarea cada vez que se produzca un cambio.
 Historial debería registrar acontecimientos, no convertirse en una segunda copia de Proyecto, Usuario y Tarea.
@@ -223,18 +237,21 @@ Historial debería registrar acontecimientos, no convertirse en una segunda copi
 **6. ¿Qué preguntas deberías hacerte antes de programar?**  
 Esta es probablemente la parte más importante del análisis.
 Te planteo preguntas que pueden ayudarte a detectar requisitos que todavía no has definido.
+
 **Sobre Proyecto**  
 ¿Un proyecto puede tener varios usuarios?  
 ¿Un proyecto puede existir sin tareas?  
 ¿Una tarea puede pertenecer a varios proyectos?  
 ¿Se pueden archivar o eliminar proyectos?  
 ¿Quién puede crear o eliminar un proyecto?  
+
 **Sobre Usuario**  
 ¿Un usuario puede participar en varios proyectos?  
 ¿Un usuario puede tener varias tareas asignadas simultáneamente?  
 ¿Una tarea puede estar asignada a varios usuarios?  
 ¿Puede un usuario modificar tareas que no tiene asignadas?  
 ¿Existen distintos roles, como administrador y miembro?  
+
 **Sobre Tarea**  
 ¿Una tarea puede estar sin asignar?  
 ¿Se puede pasar directamente de pendiente a completada?  
@@ -242,6 +259,7 @@ Te planteo preguntas que pueden ayudarte a detectar requisitos que todavía no h
 ¿Una tarea puede tener fecha de vencimiento?  
 ¿Se puede eliminar una tarea después de completarla?  
 ¿Se puede cambiar la prioridad de una tarea completada?  
+
 **Sobre Historial**  
 ¿Quieres registrar todos los cambios o solamente los importantes?  
 ¿Quieres saber quién realizó cada cambio?  
@@ -254,14 +272,15 @@ Tu diseño tiene una base razonable. No veo necesario añadir muchas más clases
 Mi valoración sería la siguiente:  
 
 
-Elemento      Valoración  
-Proyecto      Bien planteado  
-Usuario       Bien planteado, pero necesita aclarar responsabilidades  
-Tarea         Bien planteada  
-Estados       Coherentes  
-Prioridades   Coherentes  
-Fechas        Correcto, aunque faltan algunas por valorar  
-Historial     Interesante y justificado si necesitas trazabilidad  
+| Elemento    | Valoración                                              |
+| ----------- | ------------------------------------------------------- |
+| Proyecto    | Bien planteado                                          |
+| Usuario     | Bien planteado, pero necesita aclarar responsabilidades |
+| Tarea       | Bien planteada                                          |
+| Estados     | Coherentes                                              |
+| Prioridades | Coherentes                                              |
+| Fechas      | Correcto, aunque faltan algunas por valorar             |
+| Historial   | Interesante y justificado si necesitas trazabilidad     | 
 
 
 

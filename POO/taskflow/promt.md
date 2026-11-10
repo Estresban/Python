@@ -39,29 +39,28 @@ No rediseñes la solución completa, Si no sabes algo, no enredes.
 
 Tu diseño de TaskFlow tiene una base coherente para una aplicación de gestión de proyectos. Has identificado tres entidades principales y has empezado a distinguir entre sus atributos y sus comportamientos, que es precisamente lo que conviene hacer antes de programar.
 Voy a analizarlo desde el punto de vista del análisis orientado a objetos, sin rediseñar toda la solución ni introducir complejidad innecesaria.
-**1. ¿Qué decisiones parecen coherentes?**
-Hay varias decisiones bien encaminadas.
-**A. Separar Proyecto, Usuario y Tarea**
-Es una buena decisión porque representan conceptos diferentes del dominio:  
+
+**1. ¿Qué decisiones parecen coherentes?**  
+Hay varias decisiones bien encaminadas.  
+**A. Separar Proyecto, Usuario y Tarea**  
+Es una buena decisión porque representan conceptos diferentes del dominio:   
 Proyecto: agrupa y organiza tareas.  
 Usuario: representa a la persona que utiliza la aplicación y puede tener tareas asignadas.  
 Tarea: representa una unidad de trabajo que tiene un estado, una prioridad y un responsable potencial.  
 Las tres entidades tienen sentido y están relacionadas entre sí.  
-**B. Los estados de Tarea**
+**B. Los estados de Tarea**  
 Los estados que has propuesto son coherentes:  
-Pendiente.  
-En progreso.  
-Completada.  
+Pendiente.-En progreso.-Completada.  
 Representan un ciclo de vida sencillo y suficiente para una primera versión.  
 También es acertado que hayas separado el estado de la prioridad.  
 Son dos conceptos diferentes:  
 El estado indica en qué situación se encuentra una tarea.  
 La prioridad indica qué importancia tiene o qué urgencia se le atribuye.  
 Por tanto, una tarea puede estar pendiente y tener prioridad alta, por ejemplo.  
-**C. Registrar fechas de creación**
+**C. Registrar fechas de creación**  
 Es una buena decisión registrar cuándo se crean los proyectos y las tareas.  
 Te permitirá conocer la antigüedad de los elementos, ordenar información cronológicamente y, posteriormente, calcular cuánto tiempo llevan abiertos.
-**D. Los comportamientos de Tarea**
+**D. Los comportamientos de Tarea**  
 También son coherentes:  
 Iniciar.  
 Completar.  
@@ -69,13 +68,13 @@ Asignarse.
 Cambiar de estado.  
 Cambiar prioridad.  
 Son operaciones directamente relacionadas con el ciclo de vida de una tarea.  
-**Una observación:** 
+**Una observación:**  
 iniciar y completar son acciones que provocan un cambio de estado. Conviene que no se conviertan en dos mecanismos independientes de modificación del estado.
-**2. ¿Qué responsabilidades podrían estar mal asignadas?**
+**2. ¿Qué responsabilidades podrían estar mal asignadas?**  
 Aquí hay algunos aspectos que revisaría.  
 
 
-**Proyecto**
+**Proyecto**  
 Has indicado que puede:  
 Crear tareas.  
 Consultar sus tareas.  
@@ -90,7 +89,7 @@ Por otro lado, Proyecto puede tener sentido como responsable de organizar sus ta
 Por ejemplo, cambiar la prioridad de una tarea es una responsabilidad que corresponde a Tarea, aunque Proyecto pueda facilitar esa operación.
 
 
-**Usuario**
+**Usuario**  
 Has indicado que puede:  
 Registrarse.  
 Consultar sus tareas asignadas.  
@@ -102,7 +101,7 @@ La asignación debería quedar reflejada en la relación entre Usuario y Tarea.
 Además, pregúntate si un usuario puede asignarse tareas a sí mismo o si únicamente otros usuarios pueden hacerlo.
 
 
-**Tarea**
+**Tarea**  
 Es la clase donde veo las responsabilidades mejor definidas.  
 Sus operaciones están relacionadas con su propio comportamiento.  
 Una cuestión importante: ¿quién tiene permiso para ejecutar esas operaciones?  
@@ -110,7 +109,7 @@ Por ejemplo, ¿cualquier usuario puede completar cualquier tarea o solamente el 
 Esto afecta a las reglas de negocio, aunque no necesariamente a las responsabilidades de las clases.  
 
 
-**3. ¿Sería interesante crear la clase Historial?**
+**3. ¿Sería interesante crear la clase Historial?**  
 Mi recomendación: sí, es interesante  
 Considero que una clase Historial puede aportar valor a TaskFlow, especialmente porque quieres registrar una línea de tiempo.  
 Pero hay una diferencia importante:  
@@ -161,23 +160,23 @@ Mi recomendación: incorporaría Historial si quieres que TaskFlow tenga trazabi
 No lo introduciría simplemente por tener más clases. Lo introduciría porque representa una necesidad funcional concreta.  
 
 
-**4. ¿Qué información podría faltar?**
+**4. ¿Qué información podría faltar?**  
 Veo algunos datos que sería conveniente valorar.  
-**En Proyecto**
+**En Proyecto**  
 Identificador único.  
 Nombre del proyecto.  
 Descripción.  
 Fecha de creación.  
 Fecha de modificación.  
 Estado del proyecto, si necesitas distinguir entre activo, finalizado o archivado.  
-**En Usuario**
+**En Usuario**  
 Identificador único.  
 Nombre.  
 Correo electrónico.  
 Contraseña o mecanismo de autenticación.  
 Fecha de registro.  
 No necesitas necesariamente todos estos atributos desde el primer momento.  
-**En Tarea**
+**En Tarea**  
 Identificador único.  
 Título.  
 Descripción.  
@@ -193,7 +192,7 @@ Hay dos datos que considero especialmente interesantes:
 Fecha de vencimiento: permite establecer cuándo debería terminar una tarea.  
 Fecha de finalización: permite saber cuándo se terminó realmente, independientemente de cuándo se creó.  
 También deberías decidir si una tarea puede estar sin asignar.  
-**En Historial**  
+**En Historial**   
 Si finalmente incorporas esta clase:  
 Identificador.  
 Fecha y hora.  
@@ -205,45 +204,45 @@ Valor nuevo.
 No todos los acontecimientos necesitan obligatoriamente valor anterior y nuevo. Por ejemplo, una creación no tiene un estado anterior.
 
 
-**5. ¿Qué información podría sobrar?**
+**5. ¿Qué información podría sobrar?**  
 No veo atributos claramente innecesarios, pero sí algunos elementos que podrían generar redundancia.  
-**A. Crear tareas y añadir tareas**
+**A. Crear tareas y añadir tareas**  
 Como comentaba anteriormente, debes aclarar si son dos operaciones distintas.
-**B. Iniciar, completar y cambiar estado**
+**B. Iniciar, completar y cambiar estado**  
 Podrías terminar teniendo tres operaciones que modifican el mismo atributo.
 No es incorrecto tenerlas, pero deben estar bien diferenciadas.
 Por ejemplo, iniciar y completar pueden ser acciones específicas que cambian el estado internamente.
-**C. Fecha de creación y fecha de modificación**
+**C. Fecha de creación y fecha de modificación**  
 No son redundantes.
 La fecha de creación nunca debería cambiar, mientras que la fecha de modificación se actualizaría cuando cambie la información de la entidad.
-**D. Guardar demasiada información en Historial**
+**D. Guardar demasiada información en Historial**  
 No necesitas duplicar toda la información de una tarea cada vez que se produzca un cambio.
 Historial debería registrar acontecimientos, no convertirse en una segunda copia de Proyecto, Usuario y Tarea.
 
 
-**6. ¿Qué preguntas deberías hacerte antes de programar?**
+**6. ¿Qué preguntas deberías hacerte antes de programar?**  
 Esta es probablemente la parte más importante del análisis.
 Te planteo preguntas que pueden ayudarte a detectar requisitos que todavía no has definido.
-**Sobre Proyecto**
+**Sobre Proyecto**  
 ¿Un proyecto puede tener varios usuarios?  
 ¿Un proyecto puede existir sin tareas?  
 ¿Una tarea puede pertenecer a varios proyectos?  
 ¿Se pueden archivar o eliminar proyectos?  
 ¿Quién puede crear o eliminar un proyecto?  
-**Sobre Usuario**
+**Sobre Usuario**  
 ¿Un usuario puede participar en varios proyectos?  
 ¿Un usuario puede tener varias tareas asignadas simultáneamente?  
 ¿Una tarea puede estar asignada a varios usuarios?  
 ¿Puede un usuario modificar tareas que no tiene asignadas?  
 ¿Existen distintos roles, como administrador y miembro?  
-**Sobre Tarea**
+**Sobre Tarea**  
 ¿Una tarea puede estar sin asignar?  
 ¿Se puede pasar directamente de pendiente a completada?  
 ¿Se puede reabrir una tarea completada?  
 ¿Una tarea puede tener fecha de vencimiento?  
 ¿Se puede eliminar una tarea después de completarla?  
 ¿Se puede cambiar la prioridad de una tarea completada?  
-**Sobre Historial**
+**Sobre Historial**  
 ¿Quieres registrar todos los cambios o solamente los importantes?  
 ¿Quieres saber quién realizó cada cambio?  
 ¿El historial debe ser permanente o se puede eliminar?  
@@ -255,7 +254,7 @@ Tu diseño tiene una base razonable. No veo necesario añadir muchas más clases
 Mi valoración sería la siguiente:  
 
 
-Elemento         Valoración  
+Elemento      Valoración  
 Proyecto      Bien planteado  
 Usuario       Bien planteado, pero necesita aclarar responsabilidades  
 Tarea         Bien planteada  
@@ -266,9 +265,10 @@ Historial     Interesante y justificado si necesitas trazabilidad
 
 
 
-# Hay tres cuestiones que resolvería antes de empezar a programar:
-**Las relaciones**: determinar si un proyecto puede tener varios usuarios, si una tarea pertenece a un único proyecto y si puede tener varios responsables.
+# Hay tres cuestiones que resolvería antes de empezar a programar:  
+**Las relaciones**: determinar si un proyecto puede tener varios usuarios, si una tarea pertenece a un único proyecto y si puede tener varios responsables.  
 **Las reglas de negocio**: determinar qué cambios de estado están permitidos y quién puede realizarlos.  
 **El historial**: decidir qué acontecimientos quieres conservar y para qué necesitas consultarlos.    
-**Una última observación**: no confundas las clases del dominio con las funcionalidades de la aplicación. Por ejemplo, registrarse, iniciar sesión o consultar tareas son funcionalidades; no tienen por qué convertirse automáticamente en responsabilidades de las entidades.  
-Mi consejo: no añadas más clases todavía. Primero define las relaciones entre Proyecto, Usuario y Tarea, y aclara sus reglas de funcionamiento. Después podrás decidir con más seguridad qué otras clases necesita TaskFlow.
+**Una última observación**: no confundas las clases del dominio con las funcionalidades de la aplicación.  
+Por ejemplo, registrarse, iniciar sesión o consultar tareas son funcionalidades; no tienen por qué convertirse automáticamente en responsabilidades de las entidades.  
+**Mi consejo:** no añadas más clases todavía. Primero define las relaciones entre Proyecto, Usuario y Tarea, y aclara sus reglas de funcionamiento. Después podrás decidir con más seguridad qué otras clases necesita TaskFlow.

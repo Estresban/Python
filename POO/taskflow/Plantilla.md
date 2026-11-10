@@ -169,6 +169,7 @@ Reuniendo las decisiones anteriores: los objetos principales, sus atributos, sus
 1. Modelo conceptual  
 
 **PROYECTO**  
+Es la entidad contenedora de nivel superior. Un proyecto agrupa una serie de tareas específicas que deben completarse. Tiene control total sobre el ciclo de vida de sus tareas (creación y eliminación).  
 Información(atributos) 
 *ID  
 *nombre  
@@ -180,8 +181,18 @@ Comportamientos (métodos)
 +eliminar tareas()  
 +consultar tareas()  
 contiene una o varias tareas  
+*   **Atributos:**
+    *   `identificador` (Público, `str`): Código alfanumérico único del proyecto.
+    *   `titulo` (Público, `str`): Nombre descriptivo.
+    *   `descripcion` (Público, `str`): Información general sobre el alcance.
+    *   `estado_proyecto` (Público, `str`): Estado global por defecto (`"Iniciado"`). Valores válidos: `["Pendiente", "Iniciado", "Finalizado"]`.
+    *   `tareas` (Público, `list`): Colección dinámica que aloja las instancias de `Tarea`.
+*   **Métodos Clave:**
+    *   `crear_tarea()`: Instancia un nuevo objeto `Tarea` pasando su propio identificador como parámetro de vinculación.
+    *   `eliminar_tarea()`: Remueve físicamente el objeto del listado interno basándose en su ID de tarea.  
 
 **TAREA**  
+Representa una unidad mínima de trabajo con estados dinámicos (*PENDIENTE*, *EN PROGRESO*, *COMPLETADA*) y niveles de prioridad (*BAJA*, *MEDIA*, *ALTA*). Cada tarea pertenece obligatoriamente a un proyecto y opcionalmente cuenta con un usuario asignado que asume la responsabilidad de completarla.  
 Información(atributos)  
 *ID  
 *proyecto  
@@ -199,8 +210,18 @@ Comportamientos (métodos)
 +cambiar estado()  
 +asignar ()    
 +cambiar prioridad()  
+**Atributos:**
+    *   `ID_tarea` (Público, `str`): Código identificador único de la tarea.
+    *   `proyecto` (Público, `str`): ID del proyecto al cual pertenece.
+    *   `estado` (Público, `str`): Inicializado en `"PENDIENTE"`. Controla los flujos de trabajo válidos.
+    *   `prioridad` (Público, `str`): Nivel por defecto `"MEDIA"`. Opciones: `["BAJA", "MEDIA", "ALTA"]`.
+    *   `fecha_creacion` / `fecha_modificacion` / `fecha_finalizacion` (Público, `date`): Marcas temporales nativas gestionadas automáticamente ante cualquier mutación de estado.
+*   **Métodos Clave:**
+    *   `iniciar()` / `completar()`: Atajos semánticos para transicionar el estado a `"EN PROGRESO"` y `"COMPLETADA"`.
+    *   `cambiar_estado()` / `cambiar_prioridad()`: Métodos con lógica condicional para asegurar que solo se guarden estados normalizados.
 
 **USUARIO**  
+Representa al miembro del equipo que ejecuta las tareas. Tiene un perfil protegido y realiza el seguimiento de múltiples actividades asociadas a su carga de trabajo.  
 Información(atributos)  
 *nombre  
 *correo electrónico  
@@ -208,6 +229,12 @@ Comportamientos (métodos)
 +registrar usuarios()  
 +recibir tareas()  
 +consultar tareas asignadas()  
+**Atributos:**
+    *   `_nombre` (Privado/Protegido, `str`): Nombre de pila del usuario.
+    *   `_correo` (Privado/Protegido, `str`): Dirección electrónica.
+    *   `tareas_asignadas` (Público, `list`): Lista de referencias cruzadas hacia objetos `Tarea`.
+*   **Métodos Clave:**
+    *   `recibir_tarea()`: Agrega una tarea a la lista interna de tareas del usuario y ejecuta de manera segura la función espejo `tarea.asignar(self)` para mantener ambos objetos sincronizados en memoria.
 
 2. Decisiones de diseño
 
@@ -223,37 +250,50 @@ cada clase gestiona las acciones de su función; main.py coordina la ejecución.
 
 ```mermaid
 classDiagram
+    direction LR
+
     class Proyecto {
-        -String ID
-        -String titulo
-        -String descripcion
-        +crearTarea() None
-        +consultarTarea() None
-        +anadirTarea() None
+        +str identificador
+        +str titulo
+        +str descripcion
+        +str estado_proyecto
+        +list tareas
+        +crear_tarea(ID_tarea: str, titulo: str, descripcion: str) void
+        +consultar_tarea() void
+        +eliminar_tarea(ID_tarea: str) void
+        +cambiar_estado(nuevo_estado: str) void
     }
 
     class Tarea {
-        -String estado
-        -Usuario responsable
-        -Date fechaCreacion
-        -Date fechaModificacion
-        -Date fechaFinalizacion
-        -String prioridad
-        +iniciar() None
-        +completar() None
-        +asignar() None
-        +cambiarEstado() None
-        +cambiarPrioridad() None
+        +str ID_tarea
+        +str proyecto
+        +str titulo
+        +str descripcion
+        +str estado
+        +Any responsable
+        +date fecha_creacion
+        +date fecha_modificacion
+        +date fecha_finalizacion
+        +str prioridad
+        +iniciar() void
+        +completar() void
+        +asignar(usuario) void
+        +cambiar_estado(estado: str) void
+        +cambiar_prioridad(prioridad: str) void
     }
 
     class Usuario {
-        -String nombre
-        -String correo
-        +consultarTareaAsignada() None
+        -str _nombre
+        -str _correo
+        +list tareas_asignadas
+        +registrar_usuario(nombre: str, correo: str) void
+        +recibir_tarea(tarea: Tarea) void
+        +consultar_tarea_asignada() void
     }
 
-    Proyecto "1" --> "*" Tarea : gestiona
-    Usuario "1" --> "*" Tarea : responsable
+    Proyecto "1" *-- "0..*" Tarea : contiene >
+    Tarea "0..*" --> "0..1" Usuario : asignada_a >
+    Usuario "1" --> "0..*" Tarea : supervisa >
 ```
 
 ## Parte 7. Primera implementación con Python

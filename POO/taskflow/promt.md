@@ -40,7 +40,7 @@ No rediseñes la solución completa, Si no sabes algo, no enredes.
 Tu diseño de TaskFlow tiene una base coherente para una aplicación de gestión de proyectos. Has identificado tres entidades principales y has empezado a distinguir entre sus atributos y sus comportamientos, que es precisamente lo que conviene hacer antes de programar.
 Voy a analizarlo desde el punto de vista del análisis orientado a objetos, sin rediseñar toda la solución ni introducir complejidad innecesaria.
 
-**1. ¿Qué decisiones parecen coherentes?**  
+# **1. ¿Qué decisiones parecen coherentes?**  
 Hay varias decisiones bien encaminadas.  
 
 **A. Separar Proyecto, Usuario y Tarea**  
@@ -76,7 +76,7 @@ Son operaciones directamente relacionadas con el ciclo de vida de una tarea.
 **Una observación:**  
 iniciar y completar son acciones que provocan un cambio de estado. Conviene que no se conviertan en dos mecanismos independientes de modificación del estado.
 
-**2. ¿Qué responsabilidades podrían estar mal asignadas?**  
+# **2. ¿Qué responsabilidades podrían estar mal asignadas?**  
 Aquí hay algunos aspectos que revisaría.  
 
 
@@ -115,7 +115,7 @@ Por ejemplo, ¿cualquier usuario puede completar cualquier tarea o solamente el 
 Esto afecta a las reglas de negocio, aunque no necesariamente a las responsabilidades de las clases.  
 
 
-**3. ¿Sería interesante crear la clase Historial?**  
+# **3. ¿Sería interesante crear la clase Historial?**  
 Mi recomendación: sí, es interesante  
 Considero que una clase Historial puede aportar valor a TaskFlow, especialmente porque quieres registrar una línea de tiempo.  
 Pero hay una diferencia importante:  
@@ -166,7 +166,7 @@ Mi recomendación: incorporaría Historial si quieres que TaskFlow tenga trazabi
 No lo introduciría simplemente por tener más clases. Lo introduciría porque representa una necesidad funcional concreta.  
 
 
-**4. ¿Qué información podría faltar?**  
+# **4. ¿Qué información podría faltar?**  
 Veo algunos datos que sería conveniente valorar.  
 
 # **En Proyecto**  
@@ -214,7 +214,7 @@ Valor nuevo.
 No todos los acontecimientos necesitan obligatoriamente valor anterior y nuevo. Por ejemplo, una creación no tiene un estado anterior.
 
 
-**5. ¿Qué información podría sobrar?**  
+# **5. ¿Qué información podría sobrar?**  
 No veo atributos claramente innecesarios, pero sí algunos elementos que podrían generar redundancia.  
 
 **A. Crear tareas y añadir tareas**  
@@ -234,7 +234,7 @@ No necesitas duplicar toda la información de una tarea cada vez que se produzca
 Historial debería registrar acontecimientos, no convertirse en una segunda copia de Proyecto, Usuario y Tarea.
 
 
-**6. ¿Qué preguntas deberías hacerte antes de programar?**  
+# **6. ¿Qué preguntas deberías hacerte antes de programar?**  
 Esta es probablemente la parte más importante del análisis.
 Te planteo preguntas que pueden ayudarte a detectar requisitos que todavía no has definido.
 

@@ -1,0 +1,22 @@
+[project]
+name = "ejemplo-pytest"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Estresban", email = "asirestebanvi@gmail.com" }
+]
+requires-python = ">=3.15"
+dependencies = []
+
+[project.scripts]
+ejemplo-pytest = "ejemplo_pytest:main.py"
+
+[build-system]
+requires = ["uv_build>=0.13.6,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]

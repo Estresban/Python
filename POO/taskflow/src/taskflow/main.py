@@ -18,7 +18,7 @@ def main():
     # Crear un proyecto
     print("\n--- Creación de Proyecto ---")
     proyecto_bordon = Proyecto(
-        identificador="ID-001", 
+        identificador="P-001", 
         titulo="comunicacion ODB II con Can BUS", 
         descripcion="Creación de ODB II comunicación con bus CAN"
     )

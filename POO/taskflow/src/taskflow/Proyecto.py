@@ -22,7 +22,7 @@ class Proyecto:
             return
 
         for tarea in self.tareas:
-            print(f"{tarea.ID_tarea} - {tarea.titulo} - {tarea.estado} - {tarea.prioridad} - CREADA: {tarea.fecha_creacion}")
+            print(f"{self.identificador} - {tarea.ID_tarea} - {tarea.titulo} - {tarea.estado} - {tarea.prioridad} - CREADA: {tarea.fecha_creacion}")
             print("--------------------")
 
     #Eliminar tareas

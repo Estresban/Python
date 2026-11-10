@@ -1,16 +1,16 @@
 # Laboratorio 1
 ## Pensar antes de programar
 
-Imagina que una pequeña empresa necesita una aplicación para organizar sus proyectos de desarrollo.
-La aplicación debe permitir:
-crear proyectos;
-registrar usuarios;
-crear tareas;
-asignar tareas a usuarios;
-cambiar el estado de una tarea;
-Una tarea puede encontrarse en diferentes estados:
-PENDIENTE → EN PROGRESO → COMPLETADA
-Nuestro objetivo es únicamente diseñar el modelo de objetos y realizar una primera implementación en Python
+Imagina que una pequeña empresa necesita una aplicación para organizar sus proyectos de desarrollo.  
+La aplicación debe permitir:  
+crear proyectos;  
+registrar usuarios;  
+crear tareas;  
+asignar tareas a usuarios;  
+cambiar el estado de una tarea;  
+Una tarea puede encontrarse en diferentes estados:  
+PENDIENTE → EN PROGRESO → COMPLETADA  
+Nuestro objetivo es únicamente diseñar el modelo de objetos y realizar una primera implementación en Python  
 
 ## Parte 1. Analizar el problema
 
@@ -102,7 +102,7 @@ Puede:
 -recibir tareas asignadas  
 
 **TAREA**  
-Puede:
+Puede:  
 -iniciar  
 -completar  
 -reasignarse  

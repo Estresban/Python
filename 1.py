@@ -1,15 +1,15 @@
-# Importamos las clases desde los archivos
+# Importamos las clases
 from proyecto import Proyecto
 from tarea import Tarea
 from usuario import Usuario
 
 
-def ejecutar_sistema():
+def ejecutar():
     print("=== INICIALIZANDO EL SISTEMA ===")
 
     # Creamos los usuarios
-    juan = Usuario("Juan Pérez", "juan@email.com")
-    maria = Usuario("María Gómez", "maria@email.com")
+    Ariel = Usuario("Ariel Vicario ", "ariel@email.com")
+    Abril = Usuario("Abril Vicario", "abril@email.com")
 
     # Creamos un proyecto
     proyecto_investor = Proyecto(
@@ -17,7 +17,7 @@ def ejecutar_sistema():
         descripcion="Analítica del S&P 500",
     )
 
-    # Creamos tareas en el proyecto
+    # Creamos tareas
     print("\n[Sistema]: Creando tareas en el proyecto...")
     proyecto_investor.crear_tarea(
         titulo="Descargar datos CSV",
@@ -30,34 +30,30 @@ def ejecutar_sistema():
 
     # Asignamos y modificamos las tareas usando los índices de la lista
     # Tarea 0: Descargar datos CSV
-    proyecto_investor.tareas[0].asignar(juan)
+    proyecto_investor.tareas[0].asignar(Ariel)
     proyecto_investor.tareas[0].iniciar()
 
-    # Tarea 1: Crear clase Plotter
-    proyecto_investor.tareas[1].asignar(maria)
+    # Tarea 1: Graficar datos
+    proyecto_investor.tareas[1].asignar(Abril)
     proyecto_investor.tareas[1].completar()
 
-    # Creamos una tarea externa y la añadimos al proyecto
-    print("[Sistema]: Añadiendo una tarea externa...")
-    tarea_externa = Tarea(
+    # Creamos una tarea nueva
+    print("[Sistema]: Añadiendo una tarea nueva...")
+    tarea_nueva = Tarea(
         titulo="Analizar volatilidad",
         descripcion="Calcular desviaciones estándar",
     )
-    tarea_externa.asignar(juan)
+    tarea_nueva.asignar(Ariel)
     
-    proyecto_investor.añadir_tarea(tarea_externa)
+    proyecto_investor.añadir_tarea(tarea_nueva)
 
-    # ==========================================
-    # VISUALIZAR LOS RESULTADOS
-    # ==========================================
-
-    # Consultamos el estado de las tareas del proyecto
+    # Consulta del estado de las tareas
     proyecto_investor.consultar_tarea()
 
-    # Consultamos las tareas pasando la lista interna del proyecto
-    juan.consultar_tarea_asignada(proyecto_investor.tareas)
-    maria.consultar_tarea_asignada(proyecto_investor.tareas)
+    # Consulta de las tareas en la lista
+    Ariel.consultar_tarea_asignada(proyecto_investor.tareas)
+    Abril.consultar_tarea_asignada(proyecto_investor.tareas)
 
 
 if __name__ == "__main__":
-    ejecutar_sistema()
+    ejecutar()

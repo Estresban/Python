@@ -40,7 +40,7 @@ class Proyecto:
                 return
         print(f"No se encontró la tarea '{titulo}' en el proyecto.")
         
-def cambiar_estado(self, nuevo_estado: str) -> None:
+    def cambiar_estado(self, nuevo_estado: str) -> None:
         estados_validos = ["Iniciado", "Finalizado"]
         
         if nuevo_estado in estados_validos:

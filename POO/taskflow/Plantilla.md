@@ -181,15 +181,15 @@ Comportamientos (métodos)
 +eliminar tareas()  
 +consultar tareas()  
 contiene una o varias tareas  
-*   **Atributos:**
-    *   `identificador` (Público, `str`): Código alfanumérico único del proyecto.
-    *   `titulo` (Público, `str`): Nombre descriptivo.
-    *   `descripcion` (Público, `str`): Información general sobre el alcance.
-    *   `estado_proyecto` (Público, `str`): Estado global por defecto (`"Iniciado"`). Valores válidos: `["Pendiente", "Iniciado", "Finalizado"]`.
-    *   `tareas` (Público, `list`): Colección dinámica que aloja las instancias de `Tarea`.
-*   **Métodos Clave:**
-    *   `crear_tarea()`: Instancia un nuevo objeto `Tarea` pasando su propio identificador como parámetro de vinculación.
-    *   `eliminar_tarea()`: Remueve físicamente el objeto del listado interno basándose en su ID de tarea.  
+**Atributos:**
+    *   identificador (Público, str): Código alfanumérico único del proyecto.
+    *   titulo (Público, str): Nombre descriptivo.
+    *   descripcion (Público, str): Información general sobre el alcance.
+    *   estado_proyecto (Público, str): Estado global por defecto ("Iniciado"). Valores válidos: ["Pendiente", "Iniciado", "Finalizado"].
+    *   tareas (Público, list): Colección dinámica que aloja las instancias de Tarea.
+**Métodos:**
+    *   crear_tarea(): Instancia un nuevo objeto Tarea pasando su propio identificador como parámetro de vinculación.
+    *   eliminar_tarea(): Remueve físicamente el objeto del listado interno basándose en su ID de tarea.  
 
 **TAREA**  
 Representa una unidad mínima de trabajo con estados dinámicos (*PENDIENTE*, *EN PROGRESO*, *COMPLETADA*) y niveles de prioridad (*BAJA*, *MEDIA*, *ALTA*). Cada tarea pertenece obligatoriamente a un proyecto y opcionalmente cuenta con un usuario asignado que asume la responsabilidad de completarla.  
@@ -211,14 +211,14 @@ Comportamientos (métodos)
 +asignar ()    
 +cambiar prioridad()  
 **Atributos:**
-    *   `ID_tarea` (Público, `str`): Código identificador único de la tarea.  
-    *   `proyecto` (Público, `str`): ID del proyecto al cual pertenece.  
-    *   `estado` (Público, `str`): Inicializado en `"PENDIENTE"`. Controla los flujos de trabajo válidos.  
-    *   `prioridad` (Público, `str`): Nivel por defecto `"MEDIA"`. Opciones: `["BAJA", "MEDIA", "ALTA"]`.  
-    *   `fecha_creacion` / `fecha_modificacion` / `fecha_finalizacion` (Público, `date`): Marcas temporales  ante cualquier mutación de estado.  
-**Métodos Clave:**
-    *   `iniciar()` / `completar()`: Atajos semánticos para transicionar el estado a `"EN PROGRESO"` y `"COMPLETADA"`.  
-    *   `cambiar_estado()` / `cambiar_prioridad()`: Métodos con lógica condicional para asegurar que solo se guarden estados normalizados.  
+    *   ID_tarea (Público, str): Código identificador único de la tarea.  
+    *   proyecto (Público, str): ID del proyecto al cual pertenece.  
+    *   estado (Público, str): Inicializado en "PENDIENTE". Controla los flujos de trabajo válidos.  
+    *   prioridad (Público, str): Nivel por defecto "MEDIA". Opciones: `["BAJA", "MEDIA", "ALTA"]`.  
+    *   fecha_creacion / fecha_modificacion / fecha_finalizacion (Público, date): Marcas temporales  ante cualquier mutación de estado.  
+**Métodos:**
+    *   iniciar() /completar(): Atajos semánticos para transicionar el estado a `"EN PROGRESO"` y `"COMPLETADA"`.  
+    *   cambiar_estado() / cambiar_prioridad(): Métodos con lógica condicional para asegurar que solo se guarden estados normalizados.  
 
 **USUARIO**  
 Representa al miembro del equipo que ejecuta las tareas. Tiene un perfil protegido y realiza el seguimiento de múltiples actividades asociadas a su carga de trabajo.  
@@ -230,12 +230,12 @@ Comportamientos (métodos)
 +recibir tareas()  
 +consultar tareas asignadas()  
 **Atributos:**  
-    *   `_nombre` (Privado/Protegido, `str`): Nombre de pila del usuario.  
-    *   `_correo` (Privado/Protegido, `str`): Dirección electrónica.  
-    *   `tareas_asignadas` (Público, `list`): Lista de referencias cruzadas hacia objetos `Tarea`.   
+    *   _nombre (Privado, str): Nombre de pila del usuario.  
+    *   _correo (Privado, str): Dirección electrónica.  
+    *   tareas_asignadas (Público, list): Lista de referencias cruzadas hacia objetos Tarea.   
 **Métodos Clave:**  
-    *   `recibir_tarea()`: Agrega una tarea a la lista interna de tareas del usuario  
-    *   `tarea.asignar(self)` para mantener ambos objetos sincronizados en memoria.  
+    *   recibir_tarea(): Agrega una tarea a la lista interna de tareas del usuario  
+    *   tarea.asignar(self) para mantener ambos objetos sincronizados en memoria.  
 
 2. Decisiones de diseño
 

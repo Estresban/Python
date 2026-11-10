@@ -210,13 +210,13 @@ Comportamientos (métodos)
 +cambiar estado()  
 +asignar ()    
 +cambiar prioridad()  
-**Atributos:**
+**Atributos:**  
     *   ID_tarea (Público, str): Código identificador único de la tarea.  
     *   proyecto (Público, str): ID del proyecto al cual pertenece.  
     *   estado (Público, str): Inicializado en "PENDIENTE". Controla los flujos de trabajo válidos.  
     *   prioridad (Público, str): Nivel por defecto "MEDIA". Opciones: `["BAJA", "MEDIA", "ALTA"]`.    
     *   fecha_creacion / fecha_modificacion / fecha_finalizacion (Público, date): Marcas temporales  ante cualquier mutación de estado.  
-**Métodos:**
+**Métodos:**  
     *   iniciar() /completar(): Atajos semánticos para transicionar el estado a `"EN PROGRESO"` y `"COMPLETADA"`.  
     *   cambiar_estado() / cambiar_prioridad(): Métodos con lógica condicional para asegurar que solo se guarden estados normalizados.  
 

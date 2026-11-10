@@ -38,21 +38,21 @@ Además de Proyecto, Tarea y Usuario, podemos identificar más entidades según 
 
 ### ¿Cuáles son realmente necesarias?
 
-Para la primera versión de la aplicación, considero necesarias estas tres entidades:
-–Proyecto: permite organizar las actividades por proyectos.
-–Usuario: permite registrar a las personas y asignarles tareas.
-–Tarea: permite representar el trabajo pendiente, su responsable y su estado.
+Para la primera versión de la aplicación, considero necesarias estas tres entidades:  
+–Proyecto: permite organizar las actividades por proyectos.  
+–Usuario: permite registrar a las personas y asignarles tareas.  
+–Tarea: permite representar el trabajo pendiente, su responsable y su estado.  
 Con estas tres clases podemos cumplir todos los requisitos del enunciado.
 Las demás entidades podrían ser opcionales. 
 Por ejemplo, añadir Comentario por si los usuarios necesitan comunicarse dentro de cada tarea. o añadir prioridad para establecer la urgencia.
 
 ### ¿Cuáles son solamente datos o características de otras entidades?
 
--Comentario: normalmente sería una entidad independiente, porque puede tener contenido, autor y fecha de creación.
--Notificación: puede ser una entidad independiente si necesitamos guardar, consultar o marcar notificaciones como leídas.
--Historial: puede ser una entidad independiente si queremos registrar cada cambio de estado, quién lo realizó y cuándo.
--Fecha: puede ser un atributo de Tarea o de Historial, porque indicaría la fecha de creación, aunque podríamos crearla como un objeto, y determinar distintas fechas, de creación, actualizaciones, o terminación.
--Prioridad: puede ser un atributo de Tarea, porque solo indica el nivel de urgencia.
+-Comentario: normalmente sería una entidad independiente, porque puede tener contenido, autor y fecha de creación.  
+-Notificación: puede ser una entidad independiente si necesitamos guardar, consultar o marcar notificaciones como leídas.  
+-Historial: puede ser una entidad independiente si queremos registrar cada cambio de estado, quién lo realizó y cuándo.  
+-Fecha: puede ser un atributo de Tarea o de Historial, porque indicaría la fecha de creación, aunque podríamos crearla como un objeto, y determinar distintas fechas, de creación, actualizaciones, o terminación.  
+-Prioridad: puede ser un atributo de Tarea, porque solo indica el nivel de urgencia.  
 
 ## Parte 2. Identificar el estado
 

@@ -16,18 +16,20 @@ class Usuario:
         self._correo = correo
         print(f"Usuario {self._nombre} registrado con éxito.")
 
-    # Recibir Tareas
-    def recibir_tarea(self, tarea: Tarea):
-        
-        self.tareas_asignadas.append(tarea)
-        print(f"Tarea '{tarea.titulo}' recibida por {self._nombre}.")      
+    # Recibir y añadir Tareas a la lista
+    def recibir_tarea(self, tarea: Tarea) -> None:
+        if tarea not in self.tareas_asignadas:
+            self.tareas_asignadas.append(tarea)
+            # Asegura la consistencia en el objeto Tarea
+            if tarea.responsable != self:
+                tarea.asignar(self)      
     
     # Consultar Tareas Asignadas
-    def consultar_tarea_asignada(self, lista_tareas: list) -> None:
+    def consultar_tarea_asignada(self) -> None:
         print(f"\nTareas asignadas a {self._nombre}:")
 
         encontradas = 0
-        for tarea in lista_tareas:
+        for tarea in self.tareas_asignadas:
             if tarea.responsable == self:
                 encontradas += 1
                 print(f"  {encontradas}.Titulo: {tarea.titulo} | Estado: {tarea.estado} | Prioridad: {tarea.prioridad}")

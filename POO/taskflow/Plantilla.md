@@ -170,7 +170,7 @@ Reuniendo las decisiones anteriores: los objetos principales, sus atributos, sus
 
 **PROYECTO**  
 Es la entidad contenedora de nivel superior. Un proyecto agrupa una serie de tareas específicas que deben completarse. Tiene control total sobre el ciclo de vida de sus tareas (creación y eliminación).  
-Información(atributos) 
+Información(atributos)  
 *ID  
 *nombre  
 *descripción  
@@ -211,14 +211,14 @@ Comportamientos (métodos)
 +asignar ()    
 +cambiar prioridad()  
 **Atributos:**
-    *   `ID_tarea` (Público, `str`): Código identificador único de la tarea.
-    *   `proyecto` (Público, `str`): ID del proyecto al cual pertenece.
-    *   `estado` (Público, `str`): Inicializado en `"PENDIENTE"`. Controla los flujos de trabajo válidos.
-    *   `prioridad` (Público, `str`): Nivel por defecto `"MEDIA"`. Opciones: `["BAJA", "MEDIA", "ALTA"]`.
-    *   `fecha_creacion` / `fecha_modificacion` / `fecha_finalizacion` (Público, `date`): Marcas temporales nativas gestionadas automáticamente ante cualquier mutación de estado.
-*   **Métodos Clave:**
-    *   `iniciar()` / `completar()`: Atajos semánticos para transicionar el estado a `"EN PROGRESO"` y `"COMPLETADA"`.
-    *   `cambiar_estado()` / `cambiar_prioridad()`: Métodos con lógica condicional para asegurar que solo se guarden estados normalizados.
+    *   `ID_tarea` (Público, `str`): Código identificador único de la tarea.  
+    *   `proyecto` (Público, `str`): ID del proyecto al cual pertenece.  
+    *   `estado` (Público, `str`): Inicializado en `"PENDIENTE"`. Controla los flujos de trabajo válidos.  
+    *   `prioridad` (Público, `str`): Nivel por defecto `"MEDIA"`. Opciones: `["BAJA", "MEDIA", "ALTA"]`.  
+    *   `fecha_creacion` / `fecha_modificacion` / `fecha_finalizacion` (Público, `date`): Marcas temporales  ante cualquier mutación de estado.  
+**Métodos Clave:**
+    *   `iniciar()` / `completar()`: Atajos semánticos para transicionar el estado a `"EN PROGRESO"` y `"COMPLETADA"`.  
+    *   `cambiar_estado()` / `cambiar_prioridad()`: Métodos con lógica condicional para asegurar que solo se guarden estados normalizados.  
 
 **USUARIO**  
 Representa al miembro del equipo que ejecuta las tareas. Tiene un perfil protegido y realiza el seguimiento de múltiples actividades asociadas a su carga de trabajo.  
@@ -229,12 +229,13 @@ Comportamientos (métodos)
 +registrar usuarios()  
 +recibir tareas()  
 +consultar tareas asignadas()  
-**Atributos:**
-    *   `_nombre` (Privado/Protegido, `str`): Nombre de pila del usuario.
-    *   `_correo` (Privado/Protegido, `str`): Dirección electrónica.
-    *   `tareas_asignadas` (Público, `list`): Lista de referencias cruzadas hacia objetos `Tarea`.
-*   **Métodos Clave:**
-    *   `recibir_tarea()`: Agrega una tarea a la lista interna de tareas del usuario y ejecuta de manera segura la función espejo `tarea.asignar(self)` para mantener ambos objetos sincronizados en memoria.
+**Atributos:**  
+    *   `_nombre` (Privado/Protegido, `str`): Nombre de pila del usuario.  
+    *   `_correo` (Privado/Protegido, `str`): Dirección electrónica.  
+    *   `tareas_asignadas` (Público, `list`): Lista de referencias cruzadas hacia objetos `Tarea`.   
+**Métodos Clave:**  
+    *   `recibir_tarea()`: Agrega una tarea a la lista interna de tareas del usuario  
+    *   `tarea.asignar(self)` para mantener ambos objetos sincronizados en memoria.  
 
 2. Decisiones de diseño
 

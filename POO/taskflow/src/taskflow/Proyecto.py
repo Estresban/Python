@@ -1,10 +1,12 @@
 from tarea import Tarea
 
 class Proyecto:
-    def __init__(self, titulo: str, descripcion: str):
+    def __init__(self,identificador: str, titulo: str, descripcion: str, estado_proyecto: str):
         # Atributos privados
+        self.identificador: str = identificador
         self.titulo: str = titulo
         self.descripcion: str = descripcion
+        self.estado_proyecto: str = estado_proyecto
         # Lista para almacenar los objetos de tipo Tarea
         self.tareas: list = []
     # Métodos públicos

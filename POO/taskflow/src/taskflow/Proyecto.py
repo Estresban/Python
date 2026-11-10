@@ -1,7 +1,7 @@
 from tarea import Tarea
 
 class Proyecto:
-    def __init__(self,identificador: str, titulo: str, descripcion: str, estado_proyecto: str):
+    def __init__(self,identificador: str, titulo: str, descripcion: str, estado_proyecto: str = "Iniciado"):
         # Atributos privados
         self.identificador: str = identificador
         self.titulo: str = titulo
@@ -39,3 +39,13 @@ class Proyecto:
                 print(f"Tarea '{titulo}' eliminada del proyecto.")
                 return
         print(f"No se encontró la tarea '{titulo}' en el proyecto.")
+        
+def cambiar_estado(self, nuevo_estado: str) -> None:
+        estados_validos = ["Iniciado", "Finalizado"]
+        
+        if nuevo_estado in estados_validos:
+            self.estado_proyecto = nuevo_estado
+            print(f"El estado del proyecto '{self.titulo}' ha cambiado a: {nuevo_estado}")
+        else:
+            print(f"Error: '{nuevo_estado}'  el estado no es válido. Use: {estados_validos}")   
+            

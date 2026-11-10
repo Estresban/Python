@@ -185,14 +185,14 @@ contiene una o varias tareas
     *   identificador (Público, str): Código alfanumérico único del proyecto.  
     *   titulo (Público, str): Nombre descriptivo.  
     *   descripcion (Público, str): Información general sobre el alcance.  
-    *   estado_proyecto (Público, str): Estado global por defecto ("Iniciado"). Valores válidos: ["Pendiente", "Iniciado", "Finalizado"].  
+    *   estado_proyecto (Público, str): Estado global por defecto `("Iniciado")`. Valores válidos: `["Pendiente", "Iniciado", "Finalizado"]`.  
     *   tareas (Público, list): Colección dinámica que aloja las instancias de Tarea.  
 **Métodos:**  
     *   crear_tarea(): Instancia un nuevo objeto Tarea pasando su propio identificador como parámetro de vinculación.  
     *   eliminar_tarea(): Remueve físicamente el objeto del listado interno basándose en su ID de tarea.    
 
 **TAREA**    
-Representa una unidad mínima de trabajo con estados dinámicos (*PENDIENTE*, *EN PROGRESO*, *COMPLETADA*) y niveles de prioridad (*BAJA*, *MEDIA*, *ALTA*). Cada tarea pertenece obligatoriamente a un proyecto y opcionalmente cuenta con un usuario asignado que asume la responsabilidad de completarla.  
+Representa una unidad mínima de trabajo con estados dinámicos `(*PENDIENTE*, *EN PROGRESO*, *COMPLETADA*)` y niveles de prioridad `(*BAJA*, *MEDIA*, *ALTA*)`. Cada tarea pertenece obligatoriamente a un proyecto y opcionalmente cuenta con un usuario asignado que asume la responsabilidad de completarla.  
 Información(atributos)  
 *ID  
 *proyecto  
@@ -213,8 +213,8 @@ Comportamientos (métodos)
 **Atributos:**  
     *   ID_tarea (Público, str): Código identificador único de la tarea.  
     *   proyecto (Público, str): ID del proyecto al cual pertenece.  
-    *   estado (Público, str): Inicializado en "PENDIENTE". Controla los flujos de trabajo válidos.  
-    *   prioridad (Público, str): Nivel por defecto "MEDIA". Opciones: `["BAJA", "MEDIA", "ALTA"]`.    
+    *   estado (Público, str): Inicializado en `"PENDIENTE"`. Controla los flujos de trabajo válidos.  
+    *   prioridad (Público, str): Nivel por defecto `"MEDIA"`. Opciones: `["BAJA", "MEDIA", "ALTA"]`.    
     *   fecha_creacion / fecha_modificacion / fecha_finalizacion (Público, date): Marcas temporales  ante cualquier mutación de estado.  
 **Métodos:**  
     *   iniciar() /completar(): Atajos semánticos para transicionar el estado a `"EN PROGRESO"` y `"COMPLETADA"`.  

@@ -22,7 +22,7 @@ class Proyecto:
             return
 
         for tarea in self.tareas:
-            print(f"{tarea.ID_tarea} - {tarea.titulo} - {tarea.estado} - {tarea.prioridad}")
+            print(f"{tarea.ID_tarea} - {tarea.titulo} - {tarea.estado} - {tarea.prioridad} - CREADA: {tarea.fecha_creacion}")
             print("--------------------")
 
     #Eliminar tareas
@@ -35,7 +35,7 @@ class Proyecto:
         print(f"No se encontró la tarea '{ID_tarea}' en el proyecto.")
         
     def cambiar_estado(self, nuevo_estado: str) -> None:
-        estados_validos = ["Iniciado", "Finalizado"]
+        estados_validos = ["Pendiente", "Iniciado", "Finalizado"]
         
         if nuevo_estado in estados_validos:
             self.estado_proyecto = nuevo_estado

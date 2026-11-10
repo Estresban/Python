@@ -79,6 +79,9 @@ print(lista_alumnos)
 print(elemento)
 
 '''
+#
+#
+#tengo que hacer un menu de calculadora que tenga las siguientes opciones:
 
 def menu():
     print("Menu de calculadora")
@@ -102,20 +105,78 @@ def operaciones():
         resultado = numero1 / numero2
     print(f"Resultado: {resultado}")
     resultados.append(resultado)
-    return None
+     
     
 def mostrar_resultados():
-    print(f"Resultados de las operaciones realizadas:{resultados}")
+    print(f"Resultado de la ultima operacion realizada:{resultados[-1]}")
 
 
 if __name__ == "__main__":
-    menu()  
-    opc = input("Ingrese una opcion: ") 
     while True:
+        menu()  
+        
+        opc = input("Ingrese una opcion: ") 
+        
         if opc == "1":
-            operaciones()
+                operaciones()
         elif opc == "2":
-            mostrar_resultados()
+                mostrar_resultados()
         elif opc == "3":
-            print("Saliendo del programa...")
-            break
+                print("Saliendo del programa...")
+                break
+
+
+############################################################
+############################################################
+############################################################
+############################################################
+############################################################
+############################################################
+            
+def menu():
+    print("Menu de calculadora")
+    print("1. Operacion")
+    print("2. Resultado")
+    print("3. Salir")           
+            
+resultados = []
+
+def operaciones():
+    numero1 = int(input("Ingrese el primer numero: "))
+    numero2 = int(input("Ingrese el segundo numero: "))
+    operacion = input("Ingrese la operacion (+, -, *, /): ")
+
+    if operacion == "+":
+        resultado = numero1 + numero2
+    elif operacion == "-":
+        resultado = numero1 - numero2
+    elif operacion == "*":
+        resultado = numero1 * numero2
+    elif operacion == "/":
+        resultado = numero1 / numero2
+    else:
+        print("Operacion no valida")
+        return None
+
+    print(f"Resultado: {resultado}")
+    return resultado
+
+def mostrar_resultados():
+    print(f"Resultado de la ultima operacion realizada:{resultados[-1]}")
+
+
+if __name__ == "__main__":
+    while True:
+        menu()  
+        
+        opc = input("Ingrese una opcion: ") 
+        
+        if opc == "1":
+                resultado = operaciones()
+                if resultado is not None:
+                    resultados.append(resultado)
+        elif opc == "2":
+                mostrar_resultados()
+        elif opc == "3":
+                print("Saliendo del programa...")
+                break

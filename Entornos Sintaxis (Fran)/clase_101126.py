@@ -79,51 +79,7 @@ print(lista_alumnos)
 print(elemento)
 
 '''
-#
-#
-#tengo que hacer un menu de calculadora que tenga las siguientes opciones:
 
-def menu():
-    print("Menu de calculadora")
-    print("1. Operacion")
-    print("2. Resultado")
-    print("3. Salir")
-
-resultados = []
-def operaciones():
-    global resultados
-    numero1 = int(input("Ingrese el primer numero: "))
-    numero2 = int(input("Ingrese el segundo numero: "))
-    operacion = input("Ingrese la operacion (+, -, *, /): ")
-    if operacion == "+":
-        resultado = numero1 + numero2
-    elif operacion == "-":
-        resultado = numero1 - numero2
-    elif operacion == "*":
-        resultado = numero1 * numero2
-    elif operacion == "/":
-        resultado = numero1 / numero2
-    print(f"Resultado: {resultado}")
-    resultados.append(resultado)
-     
-    
-def mostrar_resultados():
-    print(f"Resultado de la ultima operacion realizada:{resultados[-1]}")
-
-
-if __name__ == "__main__":
-    while True:
-        menu()  
-        
-        opc = input("Ingrese una opcion: ") 
-        
-        if opc == "1":
-                operaciones()
-        elif opc == "2":
-                mostrar_resultados()
-        elif opc == "3":
-                print("Saliendo del programa...")
-                break
 
 
 ############################################################
@@ -180,3 +136,53 @@ if __name__ == "__main__":
         elif opc == "3":
                 print("Saliendo del programa...")
                 break
+            
+############################################################
+############################################################
+##############        HECHO EN CLASE        ################
+############################################################
+############################################################
+############################################################
+
+def menu():
+    print("Menu de calculadora")
+    print("1. Operacion")
+    print("2. Resultado")
+    print("3. Salir")
+
+resultados = []
+def operaciones():
+    global resultados
+    numero1 = int(input("Ingrese el primer numero: "))
+    numero2 = int(input("Ingrese el segundo numero: "))
+    operacion = input("Ingrese la operacion (+, -, *, /): ")
+    if operacion == "+":
+        resultado = numero1 + numero2
+    elif operacion == "-":
+        resultado = numero1 - numero2
+    elif operacion == "*":
+        resultado = numero1 * numero2
+    elif operacion == "/":
+        resultado = numero1 / numero2
+    print(f"Resultado: {resultado}")
+    resultados.append(resultado)
+     
+    
+def mostrar_resultados():
+    print(f"Resultado de la ultima operacion realizada:{resultados[-1]}")
+
+
+if __name__ == "__main__":
+    while True:
+        menu()  
+        
+        opc = input("Ingrese una opcion: ") 
+        
+        if opc == "1":
+                operaciones()
+        elif opc == "2":
+                mostrar_resultados()
+        elif opc == "3":
+                print("Saliendo del programa...")
+                break
+            

@@ -1,16 +1,16 @@
 # Laboratorio 1
 ## Pensar antes de programar
 
-Imagina que una pequeña empresa necesita una aplicación para organizar sus proyectos de desarrollo.
-La aplicación debe permitir:
-crear proyectos;
-registrar usuarios;
-crear tareas;
-asignar tareas a usuarios;
-cambiar el estado de una tarea;
-Una tarea puede encontrarse en diferentes estados:
-PENDIENTE → EN PROGRESO → COMPLETADA
-Nuestro objetivo es únicamente diseñar el modelo de objetos y realizar una primera implementación en Python
+Imagina que una pequeña empresa necesita una aplicación para organizar sus proyectos de desarrollo.  
+La aplicación debe permitir:  
+crear proyectos;  
+registrar usuarios;  
+crear tareas;  
+asignar tareas a usuarios;  
+cambiar el estado de una tarea;  
+Una tarea puede encontrarse en diferentes estados:  
+PENDIENTE → EN PROGRESO → COMPLETADA  
+Nuestro objetivo es únicamente diseñar el modelo de objetos y realizar una primera implementación en Python  
 
 ## Parte 1. Analizar el problema
 
@@ -38,28 +38,30 @@ Además de Proyecto, Tarea y Usuario, podemos identificar más entidades según 
 
 ### ¿Cuáles son realmente necesarias?
 
-Para la primera versión de la aplicación, considero necesarias estas tres entidades:
-–Proyecto: permite organizar las actividades por proyectos.
-–Usuario: permite registrar a las personas y asignarles tareas.
-–Tarea: permite representar el trabajo pendiente, su responsable y su estado.
+Para la primera versión de la aplicación, considero necesarias estas tres entidades:  
+–Proyecto: permite organizar las actividades por proyectos.  
+–Usuario: permite registrar a las personas y asignarles tareas.  
+–Tarea: permite representar el trabajo pendiente, su responsable y su estado.  
 Con estas tres clases podemos cumplir todos los requisitos del enunciado.
 Las demás entidades podrían ser opcionales. 
 Por ejemplo, añadir Comentario por si los usuarios necesitan comunicarse dentro de cada tarea. o añadir prioridad para establecer la urgencia.
 
 ### ¿Cuáles son solamente datos o características de otras entidades?
 
--Comentario: normalmente sería una entidad independiente, porque puede tener contenido, autor y fecha de creación.
--Notificación: puede ser una entidad independiente si necesitamos guardar, consultar o marcar notificaciones como leídas.
--Historial: puede ser una entidad independiente si queremos registrar cada cambio de estado, quién lo realizó y cuándo.
--Fecha: puede ser un atributo de Tarea o de Historial, porque indicaría la fecha de creación, aunque podríamos crearla como un objeto, y determinar distintas fechas, de creación, actualizaciones, o terminación.
--Prioridad: puede ser un atributo de Tarea, porque solo indica el nivel de urgencia.
+-Comentario: normalmente sería una entidad independiente, porque puede tener contenido, autor y fecha de creación.  
+-Notificación: puede ser una entidad independiente si necesitamos guardar, consultar o marcar notificaciones como leídas.  
+-Historial: puede ser una entidad independiente si queremos registrar cada cambio de estado, quién lo realizó y cuándo.  
+-Fecha: puede ser un atributo de Tarea o de Historial, porque indicaría la fecha de creación, aunque podríamos crearla como un objeto, y determinar distintas fechas, de creación, actualizaciones, o terminación.  
+-Prioridad: puede ser un atributo de Tarea, porque solo indica el nivel de urgencia.  
 
 ## Parte 2. Identificar el estado
 
 ### 1. PROYECTO.
 
--Nombre: para identificar el proyecto.  
+-Identificador: para identificar el proyecto.  
+-Titulo: para nombrar el proyecto.  
 -Descripción: para conocer qué se va a desarrollar.  
+-Estado: para saber el estado en el cual esta el proyecto.  
 -Tareas: para saber qué tareas pertenecen al proyecto.  
 
 ### 2. USUARIO.
@@ -70,10 +72,13 @@ Por ejemplo, añadir Comentario por si los usuarios necesitan comunicarse dentro
 
 ### 3. TAREA.
 
+-Identificador: para identificar la tarea.
+-Proyecto: para saber al proyecto que pertenece.
 -Título: para identificar el trabajo que se debe realizar.  
 -Descripción: para explicar en qué consiste.  
 -Estado: para saber si está pendiente, en progreso o completada.  
 -Responsable: para conocer qué usuario tiene asignada la tarea.  
+-Prioridad: conocer la prioridad de la tarea.  
 
 ### 4. OTRAS ENTIDADES.
 
@@ -94,20 +99,21 @@ Puede:
 -crear tareas  
 -consultar sus tareas  
 -eliminar tareas  
+-cambiar estado  
 
 **USUARIO**  
 Puede:  
--registrarse  
+-registrar usuarios 
 -consultar sus tareas asignadas  
 -recibir tareas asignadas  
 
 **TAREA**  
-Puede:
+Puede:  
 -iniciar  
 -completar  
--reasignarse  
+-asignar  
 -cambiar de estado  
--actualizar su descripción  
+-actualizar prioridad  
 
 **COMENTARIO**  
 Puede:  
@@ -159,21 +165,37 @@ Por ejemplo, completar una tarea debería ser responsabilidad de Tarea, porque e
 
 ## Parte 5. Diseñar el modelo
 
-Reuniendo las decisiones anteriores: los objetos principales, sus atributos, sus comportamientos y las responsabilidades de cada clase.
-1. Modelo conceptual
+Reuniendo las decisiones anteriores: los objetos principales, sus atributos, sus comportamientos y las responsabilidades de cada clase.  
+1. Modelo conceptual  
 
-**PROYECTO**
+**PROYECTO**  
+Es la entidad contenedora de nivel superior. Un proyecto agrupa una serie de tareas específicas que deben completarse. Tiene control total sobre el ciclo de vida de sus tareas (creación y eliminación).  
 Información(atributos)  
+*ID  
 *nombre  
 *descripción  
+*Estado  
+*Lista de tareas  
 Comportamientos (métodos)  
 +crear tareas()  
-+añadir tareas()  
++eliminar tareas()  
 +consultar tareas()  
 contiene una o varias tareas  
+**Atributos:**  
+    *   identificador (Público, str): Código alfanumérico único del proyecto.  
+    *   titulo (Público, str): Nombre descriptivo.  
+    *   descripcion (Público, str): Información general sobre el alcance.  
+    *   estado_proyecto (Público, str): Estado global por defecto `("Iniciado")`. Valores válidos: `["Pendiente", "Iniciado", "Finalizado"]`.  
+    *   tareas (Público, list): Colección dinámica que aloja las instancias de Tarea.  
+**Métodos:**  
+    *   crear_tarea(): Instancia un nuevo objeto Tarea pasando su propio identificador como parámetro de vinculación.  
+    *   eliminar_tarea(): Remueve físicamente el objeto del listado interno basándose en su ID de tarea.    
 
-**TAREA**  
+**TAREA**    
+Representa una unidad mínima de trabajo con estados dinámicos `(*PENDIENTE*, *EN PROGRESO*, *COMPLETADA*)` y niveles de prioridad `(*BAJA*, *MEDIA*, *ALTA*)`. Cada tarea pertenece obligatoriamente a un proyecto y opcionalmente cuenta con un usuario asignado que asume la responsabilidad de completarla.  
 Información(atributos)  
+*ID  
+*proyecto  
 *título  
 *descripción  
 *estado  
@@ -181,21 +203,39 @@ Información(atributos)
 *fecha de creación  
 *fecha de modificación  
 *fecha de finalización  
-*prioridad (opcional)  
+*prioridad    
 Comportamientos (métodos)  
 +iniciar()  
 +completar()  
 +cambiar estado()  
-+asignar responsable()  
-+actualizar descripción()  
++asignar ()    
 +cambiar prioridad()  
+**Atributos:**  
+    *   ID_tarea (Público, str): Código identificador único de la tarea.  
+    *   proyecto (Público, str): ID del proyecto al cual pertenece.  
+    *   estado (Público, str): Inicializado en `"PENDIENTE"`. Controla los flujos de trabajo válidos.  
+    *   prioridad (Público, str): Nivel por defecto `"MEDIA"`. Opciones: `["BAJA", "MEDIA", "ALTA"]`.    
+    *   fecha_creacion / fecha_modificacion / fecha_finalizacion (Público, date): Marcas temporales  ante cualquier mutación de estado.  
+**Métodos:**  
+    *   iniciar() /completar(): Atajos semánticos para transicionar el estado a `"EN PROGRESO"` y `"COMPLETADA"`.  
+    *   cambiar_estado() / cambiar_prioridad(): Métodos con lógica condicional para asegurar que solo se guarden estados normalizados.  
 
 **USUARIO**  
+Representa al miembro del equipo que ejecuta las tareas. Tiene un perfil protegido y realiza el seguimiento de múltiples actividades asociadas a su carga de trabajo.  
 Información(atributos)  
 *nombre  
 *correo electrónico  
 Comportamientos (métodos)  
++registrar usuarios()  
++recibir tareas()  
 +consultar tareas asignadas()  
+**Atributos:**  
+    *   _nombre (Privado, str): Nombre de pila del usuario.  
+    *   _correo (Privado, str): Dirección electrónica.  
+    *   tareas_asignadas (Público, list): Lista de referencias cruzadas hacia objetos Tarea.   
+**Métodos:**  
+    *   recibir_tarea(): Agrega una tarea a la lista interna de tareas del usuario  
+    *   tarea.asignar(self) para mantener ambos objetos sincronizados en memoria.  
 
 2. Decisiones de diseño
 
@@ -211,36 +251,50 @@ cada clase gestiona las acciones de su función; main.py coordina la ejecución.
 
 ```mermaid
 classDiagram
+    direction LR
+
     class Proyecto {
-        -String titulo
-        -String descripcion
-        +crearTarea() None
-        +consultarTarea() None
-        +anadirTarea() None
+        +str identificador
+        +str titulo
+        +str descripcion
+        +str estado_proyecto
+        +list tareas
+        +crear_tarea(ID_tarea: str, titulo: str, descripcion: str) void
+        +consultar_tarea() void
+        +eliminar_tarea(ID_tarea: str) void
+        +cambiar_estado(nuevo_estado: str) void
     }
 
     class Tarea {
-        -String estado
-        -Usuario responsable
-        -Date fechaCreacion
-        -Date fechaModificacion
-        -Date fechaFinalizacion
-        -String prioridad
-        +iniciar() None
-        +completar() None
-        +asignar() None
-        +cambiarEstado() None
-        +cambiarPrioridad() None
+        +str ID_tarea
+        +str proyecto
+        +str titulo
+        +str descripcion
+        +str estado
+        +Any responsable
+        +date fecha_creacion
+        +date fecha_modificacion
+        +date fecha_finalizacion
+        +str prioridad
+        +iniciar() void
+        +completar() void
+        +asignar(usuario) void
+        +cambiar_estado(estado: str) void
+        +cambiar_prioridad(prioridad: str) void
     }
 
     class Usuario {
-        -String nombre
-        -String correo
-        +consultarTareaAsignada() None
+        -str _nombre
+        -str _correo
+        +list tareas_asignadas
+        +registrar_usuario(nombre: str, correo: str) void
+        +recibir_tarea(tarea: Tarea) void
+        +consultar_tarea_asignada() void
     }
 
-    Proyecto "1" --> "*" Tarea : gestiona
-    Usuario "1" --> "*" Tarea : responsable
+    Proyecto "1" *-- "0..*" Tarea : contiene >
+    Tarea "0..*" --> "0..1" Usuario : asignada_a >
+    Usuario "1" --> "0..*" Tarea : supervisa >
 ```
 
 ## Parte 7. Primera implementación con Python

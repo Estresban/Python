@@ -58,8 +58,10 @@ Por ejemplo, añadir Comentario por si los usuarios necesitan comunicarse dentro
 
 ### 1. PROYECTO.
 
--Nombre: para identificar el proyecto.  
+-Identificador: para identificar el proyecto.  
+-Titulo: para nombrar el proyecto.  
 -Descripción: para conocer qué se va a desarrollar.  
+-Estado: para saber el estado en el cual esta el proyecto.  
 -Tareas: para saber qué tareas pertenecen al proyecto.  
 
 ### 2. USUARIO.
@@ -70,10 +72,13 @@ Por ejemplo, añadir Comentario por si los usuarios necesitan comunicarse dentro
 
 ### 3. TAREA.
 
+-Identificador: para identificar la tarea.
+-Proyecto: para saber al proyecto que pertenece.
 -Título: para identificar el trabajo que se debe realizar.  
 -Descripción: para explicar en qué consiste.  
 -Estado: para saber si está pendiente, en progreso o completada.  
 -Responsable: para conocer qué usuario tiene asignada la tarea.  
+-Prioridad: conocer la prioridad de la tarea.  
 
 ### 4. OTRAS ENTIDADES.
 
@@ -94,10 +99,11 @@ Puede:
 -crear tareas  
 -consultar sus tareas  
 -eliminar tareas  
+-cambiar estado  
 
 **USUARIO**  
 Puede:  
--registrarse  
+-registrar usuarios 
 -consultar sus tareas asignadas  
 -recibir tareas asignadas  
 
@@ -105,9 +111,9 @@ Puede:
 Puede:  
 -iniciar  
 -completar  
--reasignarse  
+-asignar  
 -cambiar de estado  
--actualizar su descripción  
+-actualizar prioridad  
 
 **COMENTARIO**  
 Puede:  
@@ -159,21 +165,26 @@ Por ejemplo, completar una tarea debería ser responsabilidad de Tarea, porque e
 
 ## Parte 5. Diseñar el modelo
 
-Reuniendo las decisiones anteriores: los objetos principales, sus atributos, sus comportamientos y las responsabilidades de cada clase.
-1. Modelo conceptual
+Reuniendo las decisiones anteriores: los objetos principales, sus atributos, sus comportamientos y las responsabilidades de cada clase.  
+1. Modelo conceptual  
 
-**PROYECTO**
-Información(atributos)  
+**PROYECTO**  
+Información(atributos) 
+*ID  
 *nombre  
 *descripción  
+*Estado  
+*Lista de tareas  
 Comportamientos (métodos)  
 +crear tareas()  
-+añadir tareas()  
++eliminar tareas()  
 +consultar tareas()  
 contiene una o varias tareas  
 
 **TAREA**  
 Información(atributos)  
+*ID  
+*proyecto  
 *título  
 *descripción  
 *estado  
@@ -181,13 +192,12 @@ Información(atributos)
 *fecha de creación  
 *fecha de modificación  
 *fecha de finalización  
-*prioridad (opcional)  
+*prioridad    
 Comportamientos (métodos)  
 +iniciar()  
 +completar()  
 +cambiar estado()  
-+asignar responsable()  
-+actualizar descripción()  
++asignar ()    
 +cambiar prioridad()  
 
 **USUARIO**  
@@ -195,6 +205,8 @@ Información(atributos)
 *nombre  
 *correo electrónico  
 Comportamientos (métodos)  
++registrar usuarios()  
++recibir tareas()  
 +consultar tareas asignadas()  
 
 2. Decisiones de diseño
@@ -212,6 +224,7 @@ cada clase gestiona las acciones de su función; main.py coordina la ejecución.
 ```mermaid
 classDiagram
     class Proyecto {
+        -String ID
         -String titulo
         -String descripcion
         +crearTarea() None

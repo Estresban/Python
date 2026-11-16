@@ -22,10 +22,10 @@ RUTA_CONFIG_JSON = os.path.join(RUTA_BASE, "config.json")
 
 CONFIG_CAMARAS_RTSP = [
     {
-        "nombre": "xxx",
-        "ip": "192.168.X.X",
-        "usuario": "xxx",
-        "password": "xxx",
+        "nombre": "Perrillas",
+        "ip": "192.168.1.2",
+        "usuario": "Tinayluz",
+        "password": "Ariel091206",
         "puerto_rtsp": 554,
         "puerto_onvif": 8899,
         "puerto_netip": 34567,
@@ -33,10 +33,10 @@ CONFIG_CAMARAS_RTSP = [
         "stream": 0,
     },
     {
-        "nombre": "xxx",
-        "ip": "192.168.X.X",
-        "usuario": "xxx",
-        "password": "xxx",
+        "nombre": "Entrada",
+        "ip": "192.168.1.3",
+        "usuario": "Luzytina",
+        "password": "Ariel091206",
         "puerto_rtsp": 554,
         "puerto_onvif": 8899,
         "puerto_netip": 34567,
@@ -44,10 +44,10 @@ CONFIG_CAMARAS_RTSP = [
         "stream": 0,
     },
     {
-        "nombre": "xxx",
-        "ip": "192.168.X.X",
-        "usuario": "xxx",
-        "password": "xxx",
+        "nombre": "Garaje",
+        "ip": "192.168.1.23",
+        "usuario": "CooperyAlice",
+        "password": "Ariel091206",
         "puerto_rtsp": 554,
         "puerto_onvif": 8899,
         "puerto_netip": 34567,
@@ -58,16 +58,16 @@ CONFIG_CAMARAS_RTSP = [
 
 # Cámara doble lente con protocolo DVRIP
 CONFIG_PATIO = {
-    "nombre": "xxx",
-    "ip": "192.168.X.X",
-    "usuario": "xxx",
-    "password": "xxx",
+    "nombre": "Patio",
+    "ip": "192.168.1.22",
+    "usuario": "Alice",
+    "password": "Ariel091206",
     "puerto_netip": 34567,
     "canales": (0, 1),  # 0 = lente inferior; 1 = lente superior
 }
 
-TELEGRAM_TOKEN = "xxx:xxx"
-TELEGRAM_CHAT_ID = "xxx"
+TELEGRAM_TOKEN = "9144605958:AAES4mTo6E0etjtPeCJBzgTmMNhiGdKodFQ"
+TELEGRAM_CHAT_ID = "8535529008"
 
 # ==============================================================================
 # PARÁMETROS DE INTERFAZ, GRABACIÓN Y DETECCIÓN

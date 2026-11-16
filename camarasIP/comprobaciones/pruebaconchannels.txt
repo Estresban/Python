@@ -1,0 +1,68 @@
+Prueba con channel 0
+
+Esperando vídeo durante 10 segundos...
+
+Paquete 1
+Tamaño: 94227
+Metadatos: {'fps': 12, 'width': 256, 'height': 1296, 'datetime': datetime.datetime(2026, 11, 12, 23, 39, 55), 'frame': 'I', 'type': None}
+
+Paquete 2
+Tamaño: 320
+Metadatos: {'type': 'g711a'}
+
+Paquete 3
+Tamaño: 320
+Metadatos: {'type': 'g711a'}
+
+Paquete 4
+Tamaño: 320
+Metadatos: {'type': 'g711a'}
+
+Paquete 5
+Tamaño: 4033
+Metadatos: {'frame': 'P'}
+Resultado de start_monitor: None
+
+Total de paquetes recibidos: 355
+
+############################################################################
+############################################################################
+
+Prueba con channel 1
+
+Esperando vídeo durante 10 segundos...
+
+Paquete 1
+Tamaño: 66702
+Metadatos: {'fps': 12, 'width': 256, 'height': 1296, 'datetime': datetime.datetime(2026, 11, 12, 23, 49, 29), 'frame': 'I', 'type': None}
+
+Paquete 2
+Tamaño: 320
+Metadatos: {'type': 'g711a'}
+
+Paquete 3
+Tamaño: 320
+Metadatos: {'type': 'g711a'}
+
+Paquete 4
+Tamaño: 66736
+Metadatos: {'fps': 12, 'width': 256, 'height': 1296, 'datetime': datetime.datetime(2026, 11, 12, 23, 49, 29), 'frame': 'I', 'type': None}
+
+Paquete 5
+Tamaño: 320
+Metadatos: {'type': 'g711a'}
+Resultado de start_monitor: None
+
+Total de paquetes recibidos: 359
+
+############################################################################
+############################################################################
+
+Prueba con channel 2
+
+
+Esperando vídeo durante 10 segundos...
+Resultado de start_monitor: {'Name': 'OPMonitor', 'OPMonitor': {'MultiChnCombin': 1, 'SubConnID': '0x0000004b'}, 'Ret': 103, 'SessionID': '0x0000004b'}
+
+Total de paquetes recibidos: 0
+PS C:\Users\vicar.PORTATIL\Documents\Python> 

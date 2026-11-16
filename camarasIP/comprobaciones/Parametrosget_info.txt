@@ -1,0 +1,482 @@
+#####################################
+info channel 0
+#####################################
+
+
+========== OPMonitor ==========
+{
+    "Name": "OPMonitor",
+    "OPMonitor": null,
+    "Ret": 607,
+    "SessionID": "0x00000050"
+}
+
+========== NetWork.RTSP ==========
+{
+    "Enable": true,
+    "Port": 554
+}
+
+========== Simplify.Encode ==========
+[
+    {
+        "ExtraFormat": {
+            "AudioEnable": true,
+            "Video": {
+                "BitRate": 512,
+                "BitRateControl": "VBR",
+                "Compression": "H.265",
+                "FPS": 12,
+                "GOP": 2,
+                "Quality": 3,
+                "Resolution": "D1",
+                "VirtualGOP": 1
+            },
+            "VideoEnable": true
+        },
+        "MainFormat": {
+            "AudioEnable": true,
+            "Video": {
+                "BitRate": 1024,
+                "BitRateControl": "VBR",
+                "Compression": "H.265",
+                "FPS": 12,
+                "GOP": 4,
+                "Quality": 3,
+                "Resolution": "3M",
+                "VirtualGOP": 1
+            },
+            "VideoEnable": true
+        }
+    },
+    {
+        "ExtraFormat": {
+            "AudioEnable": true,
+            "Video": {
+                "BitRate": 512,
+                "BitRateControl": "VBR",
+                "Compression": "H.265",
+                "FPS": 12,
+                "GOP": 2,
+                "Quality": 3,
+                "Resolution": "D1",
+                "VirtualGOP": 1
+            },
+            "VideoEnable": true
+        },
+        "MainFormat": {
+            "AudioEnable": true,
+            "Video": {
+                "BitRate": 1024,
+                "BitRateControl": "VBR",
+                "Compression": "H.265",
+                "FPS": 12,
+                "GOP": 4,
+                "Quality": 3,
+                "Resolution": "3M",
+                "VirtualGOP": 1
+            },
+            "VideoEnable": true
+        }
+    }
+]
+
+========== Camera ==========
+{
+    "ClearFog": [
+        {
+            "enable": false,
+            "level": 50
+        },
+        {
+            "enable": false,
+            "level": 50
+        }
+    ],
+    "DistortionCorrect": {
+        "Lenstype": 0,
+        "Version": 0
+    },
+    "FishLensParam": [
+        {
+            "CenterOffsetX": 500,
+            "CenterOffsetY": 360,
+            "ImageHeight": 720,
+            "ImageWidth": 1280,
+            "LensType": 0,
+            "PCMac": "000000000000",
+            "Radius": 300,
+            "Version": 0,
+            "ViewAngle": 0,
+            "ViewMode": 0,
+            "Zoom": 100
+        }
+    ],
+    "Param": [
+        {
+            "AeSensitivity": 5,
+            "ApertureMode": "0x00000000",
+            "BLCMode": "0x00000000",
+            "DayNightColor": "0x00000003",
+            "Day_nfLevel": 3,
+            "DncThr": 30,
+            "ElecLevel": 50,
+            "EsShutter": "0x00000000",
+            "ExposureParam": {
+                "LeastTime": "0x0000001e",
+                "Level": 0,
+                "MostTime": "0x00010000"
+            },
+            "GainParam": {
+                "AutoGain": 1,
+                "Gain": 50
+            },
+            "IRCUTMode": 0,
+            "InfraredSwap": 0,
+            "IrcutSwap": 0,
+            "Night_nfLevel": 3,
+            "PictureFlip": "0x00000001",
+            "PictureMirror": "0x00000001",
+            "RejectFlicker": "0x00000000",
+            "WhiteBalance": "0x00000000"
+        },
+        {
+            "AeSensitivity": 5,
+            "ApertureMode": "0x00000000",
+            "BLCMode": "0x00000000",
+            "DayNightColor": "0x00000000",
+            "Day_nfLevel": 3,
+            "DncThr": 30,
+            "ElecLevel": 50,
+            "EsShutter": "0x00000002",
+            "ExposureParam": {
+                "LeastTime": "0x0000001e",
+                "Level": 0,
+                "MostTime": "0x00010000"
+            },
+            "GainParam": {
+                "AutoGain": 1,
+                "Gain": 50
+            },
+            "IRCUTMode": 0,
+            "InfraredSwap": 0,
+            "IrcutSwap": 0,
+            "Night_nfLevel": 3,
+            "PictureFlip": "0x00000000",
+            "PictureMirror": "0x00000000",
+            "RejectFlicker": "0x00000000",
+            "WhiteBalance": "0x00000000"
+        }
+    ],
+    "ParamEx": [
+        {
+            "AeMeansure": 0,
+            "AutomaticAdjustment": 3,
+            "BroadTrends": {
+                "AutoGain": 1,
+                "Gain": 50
+            },
+            "CorridorMode": 0,
+            "DayNightSwitch": {
+                "KeepDayPeriod": "0 07:00:00-18:00:00",
+                "SwitchMode": 0
+            },
+            "Dis": 0,
+            "ExposureTime": "0x00000100",
+            "Ldc": 0,
+            "LowLuxMode": 1,
+            "MicroFillLight": 0,
+            "NightEnhance": 0,
+            "OneKeyOpenWL": false,
+            "OpenDNC": true,
+            "PreventOverExpo": 0,
+            "PreventOverExpoByAI": 0,
+            "SoftLedThr": 3,
+            "SoftPhotosensitivecontrol": 0,
+            "Style": "type1"
+        },
+        {
+            "AeMeansure": 0,
+            "AutomaticAdjustment": 3,
+            "BroadTrends": {
+                "AutoGain": 0,
+                "Gain": 50
+            },
+            "CorridorMode": 0,
+            "DayNightSwitch": {
+                "KeepDayPeriod": "0 07:00:00-18:00:00",
+                "SwitchMode": 0
+            },
+            "Dis": 0,
+            "ExposureTime": "0x00000100",
+            "Ldc": 0,
+            "LowLuxMode": 1,
+            "MicroFillLight": 0,
+            "NightEnhance": 0,
+            "OneKeyOpenWL": false,
+            "OpenDNC": false,
+            "PreventOverExpo": 0,
+            "PreventOverExpoByAI": 0,
+            "SoftLedThr": 3,
+            "SoftPhotosensitivecontrol": 0,
+            "Style": "type1"
+        }
+    ],
+    "WhiteLight": {
+        "Brightness": 50,
+        "MoveTrigLight": {
+            "Duration": 60,
+            "Level": 3
+        },
+        "WorkMode": "Close",
+        "WorkPeriod": {
+            "EHour": 23,
+            "EMinute": 59,
+            "Enable": 1,
+            "SHour": 0,
+            "SMinute": 0
+        }
+    }
+}
+
+
+#####################################
+info channel 1
+#####################################
+
+
+========== OPMonitor ==========
+{
+    "Name": "OPMonitor",
+    "OPMonitor": null,
+    "Ret": 607,
+    "SessionID": "0x00000051"
+}
+
+========== NetWork.RTSP ==========
+{
+    "Enable": true,
+    "Port": 554
+}
+
+========== Simplify.Encode ==========
+[
+    {
+        "ExtraFormat": {
+            "AudioEnable": true,
+            "Video": {
+                "BitRate": 512,
+                "BitRateControl": "VBR",
+                "Compression": "H.265",
+                "FPS": 12,
+                "GOP": 2,
+                "Quality": 3,
+                "Resolution": "D1",
+                "VirtualGOP": 1
+            },
+            "VideoEnable": true
+        },
+        "MainFormat": {
+            "AudioEnable": true,
+            "Video": {
+                "BitRate": 1024,
+                "BitRateControl": "VBR",
+                "Compression": "H.265",
+                "FPS": 12,
+                "GOP": 4,
+                "Quality": 3,
+                "Resolution": "3M",
+                "VirtualGOP": 1
+            },
+            "VideoEnable": true
+        }
+    },
+    {
+        "ExtraFormat": {
+            "AudioEnable": true,
+            "Video": {
+                "BitRate": 512,
+                "BitRateControl": "VBR",
+                "Compression": "H.265",
+                "FPS": 12,
+                "GOP": 2,
+                "Quality": 3,
+                "Resolution": "D1",
+                "VirtualGOP": 1
+            },
+            "VideoEnable": true
+        },
+        "MainFormat": {
+            "AudioEnable": true,
+            "Video": {
+                "BitRate": 1024,
+                "BitRateControl": "VBR",
+                "Compression": "H.265",
+                "FPS": 12,
+                "GOP": 4,
+                "Quality": 3,
+                "Resolution": "3M",
+                "VirtualGOP": 1
+            },
+            "VideoEnable": true
+        }
+    }
+]
+
+========== Camera ==========
+{
+    "ClearFog": [
+        {
+            "enable": false,
+            "level": 50
+        },
+        {
+            "enable": false,
+            "level": 50
+        }
+    ],
+    "DistortionCorrect": {
+        "Lenstype": 0,
+        "Version": 0
+    },
+    "FishLensParam": [
+        {
+            "CenterOffsetX": 500,
+            "CenterOffsetY": 360,
+            "ImageHeight": 720,
+            "ImageWidth": 1280,
+            "LensType": 0,
+            "PCMac": "000000000000",
+            "Radius": 300,
+            "Version": 0,
+            "ViewAngle": 0,
+            "ViewMode": 0,
+            "Zoom": 100
+        }
+    ],
+    "Param": [
+        {
+            "AeSensitivity": 5,
+            "ApertureMode": "0x00000000",
+            "BLCMode": "0x00000000",
+            "DayNightColor": "0x00000003",
+            "Day_nfLevel": 3,
+            "DncThr": 30,
+            "ElecLevel": 50,
+            "EsShutter": "0x00000000",
+            "ExposureParam": {
+                "LeastTime": "0x0000001e",
+                "Level": 0,
+                "MostTime": "0x00010000"
+            },
+            "GainParam": {
+                "AutoGain": 1,
+                "Gain": 50
+            },
+            "IRCUTMode": 0,
+            "InfraredSwap": 0,
+            "IrcutSwap": 0,
+            "Night_nfLevel": 3,
+            "PictureFlip": "0x00000001",
+            "PictureMirror": "0x00000001",
+            "RejectFlicker": "0x00000000",
+            "WhiteBalance": "0x00000000"
+        },
+        {
+            "AeSensitivity": 5,
+            "ApertureMode": "0x00000000",
+            "BLCMode": "0x00000000",
+            "DayNightColor": "0x00000000",
+            "Day_nfLevel": 3,
+            "DncThr": 30,
+            "ElecLevel": 50,
+            "EsShutter": "0x00000002",
+            "ExposureParam": {
+                "LeastTime": "0x0000001e",
+                "Level": 0,
+                "MostTime": "0x00010000"
+            },
+            "GainParam": {
+                "AutoGain": 1,
+                "Gain": 50
+            },
+            "IRCUTMode": 0,
+            "InfraredSwap": 0,
+            "IrcutSwap": 0,
+            "Night_nfLevel": 3,
+            "PictureFlip": "0x00000000",
+            "PictureMirror": "0x00000000",
+            "RejectFlicker": "0x00000000",
+            "WhiteBalance": "0x00000000"
+        }
+    ],
+    "ParamEx": [
+        {
+            "AeMeansure": 0,
+            "AutomaticAdjustment": 3,
+            "BroadTrends": {
+                "AutoGain": 1,
+                "Gain": 50
+            },
+            "CorridorMode": 0,
+            "DayNightSwitch": {
+                "KeepDayPeriod": "0 07:00:00-18:00:00",
+                "SwitchMode": 0
+            },
+            "Dis": 0,
+            "ExposureTime": "0x00000100",
+            "Ldc": 0,
+            "LowLuxMode": 1,
+            "MicroFillLight": 0,
+            "NightEnhance": 0,
+            "OneKeyOpenWL": false,
+            "OpenDNC": true,
+            "PreventOverExpo": 0,
+            "PreventOverExpoByAI": 0,
+            "SoftLedThr": 3,
+            "SoftPhotosensitivecontrol": 0,
+            "Style": "type1"
+        },
+        {
+            "AeMeansure": 0,
+            "AutomaticAdjustment": 3,
+            "BroadTrends": {
+                "AutoGain": 0,
+                "Gain": 50
+            },
+            "CorridorMode": 0,
+            "DayNightSwitch": {
+                "KeepDayPeriod": "0 07:00:00-18:00:00",
+                "SwitchMode": 0
+            },
+            "Dis": 0,
+            "ExposureTime": "0x00000100",
+            "Ldc": 0,
+            "LowLuxMode": 1,
+            "MicroFillLight": 0,
+            "NightEnhance": 0,
+            "OneKeyOpenWL": false,
+            "OpenDNC": false,
+            "PreventOverExpo": 0,
+            "PreventOverExpoByAI": 0,
+            "SoftLedThr": 3,
+            "SoftPhotosensitivecontrol": 0,
+            "Style": "type1"
+        }
+    ],
+    "WhiteLight": {
+        "Brightness": 50,
+        "MoveTrigLight": {
+            "Duration": 60,
+            "Level": 3
+        },
+        "WorkMode": "Close",
+        "WorkPeriod": {
+            "EHour": 23,
+            "EMinute": 59,
+            "Enable": 1,
+            "SHour": 0,
+            "SMinute": 0
+        }
+    }
+}

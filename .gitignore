@@ -1,1 +1,7 @@
 .vscode/arduino.json
+camarasIP/config.json
+camarasIP/config.py
+camarasIP/comprobaciones/resultado_xm80_3.json
+camarasIP/comprobaciones/resultado_xm80_2.json
+camarasIP/comprobaciones/resultado_xm80_23.json
+camarasIP/comprobaciones/resultado_xm80.json

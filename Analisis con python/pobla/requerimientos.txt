@@ -1,0 +1,7 @@
+#py -m pip freeze > requerimientos.txt
+
+pandas==3.0.6
+numpy==2.5.4
+matplotlib
+openpyxl
+yfinance==1.7.0

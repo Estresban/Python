@@ -88,7 +88,7 @@ print(elemento)
 ############################################################
 ############################################################
 ############################################################
-            
+'''         
 def menu():
     print("Menu de calculadora")
     print("1. Operacion")
@@ -136,6 +136,7 @@ if __name__ == "__main__":
         elif opc == "3":
                 print("Saliendo del programa...")
                 break
+            '''
             
 ############################################################
 ############################################################
@@ -151,21 +152,32 @@ def menu():
     print("3. Salir")
 
 resultados = []
+
 def operaciones():
     global resultados
+    
     numero1 = int(input("Ingrese el primer numero: "))
     numero2 = int(input("Ingrese el segundo numero: "))
     operacion = input("Ingrese la operacion (+, -, *, /): ")
-    if operacion == "+":
-        resultado = numero1 + numero2
-    elif operacion == "-":
-        resultado = numero1 - numero2
-    elif operacion == "*":
-        resultado = numero1 * numero2
-    elif operacion == "/":
-        resultado = numero1 / numero2
-    print(f"Resultado: {resultado}")
-    resultados.append(resultado)
+    try:
+        numero1 and numero2 is not int or numero1 and numero2 is not float
+        break
+    
+    
+    
+    
+    
+    except ValueError:
+        if operacion == "+":
+            resultado = numero1 + numero2
+        elif operacion == "-":
+            resultado = numero1 - numero2
+        elif operacion == "*":
+            resultado = numero1 * numero2
+        elif operacion == "/":
+            resultado = numero1 / numero2
+        print(f"Resultado: {resultado}")
+        resultados.append(resultado)
      
     
 def mostrar_resultados():
@@ -178,11 +190,19 @@ if __name__ == "__main__":
         
         opc = input("Ingrese una opcion: ") 
         
-        if opc == "1":
-                operaciones()
-        elif opc == "2":
-                mostrar_resultados()
-        elif opc == "3":
-                print("Saliendo del programa...")
+        try: 
+        
+            if opc == "1":
+                    operaciones()  
+                    
+            elif opc == "2":
+                    mostrar_resultados()
+                    
+            elif opc == "3":
+                    print("Saliendo del programa...")
+                    
+            if opc != int or opc != float:
+                except ValueError as error:
+                    print ("Pon un numero gañan")
+                
                 break
-            

@@ -3,8 +3,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-raiz = Path(__file__).parent.parent
-archivo = raiz / "datos" / "poblacion.xlsx"  # Ejecutar desde /src
+from pathlib import Path
+
+archivo = Path(__file__).resolve().parent.parent / "datos/poblacion.xlsx"
 
 df = pd.read_excel(archivo, header=None)
 

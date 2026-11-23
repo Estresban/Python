@@ -36,9 +36,16 @@ def test_negat06_volumen_decimal():
     with pytest.raises(ValueError):
         altavoz.volumen = 25.5
         
-'''
+
 # Asignar altavoz.volumen = "alto"
 def test_negat07_volumen_texto():
     altavoz = Altavoz("Salón", 50)
     with pytest.raises(ValueError):
         altavoz.volumen = "alto"
+        
+'''
+# Asignar altavoz.estado = "encendido"
+def test_negat08_estado_solo_lectura():
+    altavoz = Altavoz("Salón", 50)
+    with pytest.raises(AttributeError):
+        altavoz.estado = "encendido"

@@ -1,7 +1,7 @@
 import pytest
 from src.altavoz.altavoz import Altavoz
 
-'''
+
 # Crear un altavoz con nombre ""
 def test_negat01_nombre_vacio():
     with pytest.raises(ValueError):
@@ -43,7 +43,7 @@ def test_negat07_volumen_texto():
     with pytest.raises(ValueError):
         altavoz.volumen = "alto"
         
-'''
+
 # Asignar altavoz.estado = "encendido"
 def test_negat08_estado_solo_lectura():
     altavoz = Altavoz("Salón", 50)

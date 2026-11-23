@@ -67,7 +67,7 @@ class Altavoz:
         
     @volumen.setter
     def volumen(self, nuevo_volumen):
-        if not isinstance(nuevo_volumen,int):
+        if isinstance(nuevo_volumen, bool) or not isinstance(nuevo_volumen, int):
             raise ValueError("El volumen debe ser un numero entero")
         if nuevo_volumen < 0 or nuevo_volumen > 100:
             raise ValueError("El volumen debe estar entre 0 y 100")    

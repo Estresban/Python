@@ -1,0 +1,122 @@
+PS C:\Users\vicar.PORTATIL\Documents\Python> & 'C:\Users\vicar.PORTATIL\AppData\Local\Python\pythoncore-3.15-64\python.exe' 'c:/Users/vicar.PORTATIL/Documents/Python/POO/altavoz/main.py'
+Traceback (most recent call last):
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\main.py", line 23, in <module>
+    Altavoz("", 50)
+    ~~~~~~~^^^^^^^^
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\src\altavoz\altavoz.py", line 43, in __init__
+    self.nombre = nombre
+    ^^^^^^^^^^^
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\src\altavoz\altavoz.py", line 65, in nombre
+    raise ValueError("El nombre no puede estar vacio")
+ValueError: El nombre no puede estar vacio
+
+##################################################################################
+##################################################################################
+##################################################################################
+##################################################################################
+
+PS C:\Users\vicar.PORTATIL\Documents\Python> & 'C:\Users\vicar.PORTATIL\AppData\Local\Python\pythoncore-3.15-64\python.exe' 'c:/Users/vicar.PORTATIL/Documents/Python/POO/altavoz/main.py'
+Traceback (most recent call last):
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\main.py", line 25, in <module>
+    Altavoz("   ", 50)
+    ~~~~~~~^^^^^^^^^^^
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\src\altavoz\altavoz.py", line 43, in __init__
+    self.nombre = nombre
+    ^^^^^^^^^^^
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\src\altavoz\altavoz.py", line 65, in nombre
+    raise ValueError("El nombre no puede estar vacio")
+ValueError: El nombre no puede estar vacio
+
+##################################################################################
+##################################################################################
+##################################################################################
+##################################################################################
+
+PS C:\Users\vicar.PORTATIL\Documents\Python> & 'C:\Users\vicar.PORTATIL\AppData\Local\Python\pythoncore-3.15-64\python.exe' 'c:/Users/vicar.PORTATIL/Documents/Python/POO/altavoz/main.py'
+Traceback (most recent call last):
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\main.py", line 27, in <module>
+    Altavoz(25, 50)
+    ~~~~~~~^^^^^^^^
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\src\altavoz\altavoz.py", line 43, in __init__
+    self.nombre = nombre
+    ^^^^^^^^^^^
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\src\altavoz\altavoz.py", line 63, in nombre
+    raise ValueError("El nombre debe ser cadena de texto")
+ValueError: El nombre debe ser cadena de texto
+
+##################################################################################
+##################################################################################
+##################################################################################
+##################################################################################
+
+PS C:\Users\vicar.PORTATIL\Documents\Python> & 'C:\Users\vicar.PORTATIL\AppData\Local\Python\pythoncore-3.15-64\python.exe' 'c:/Users/vicar.PORTATIL/Documents/Python/POO/altavoz/main.py'
+Traceback (most recent call last):
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\main.py", line 29, in <module>
+    Altavoz("Salón", -1)
+    ~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\src\altavoz\altavoz.py", line 44, in __init__
+    self.volumen = volumen
+    ^^^^^^^^^^^^
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\src\altavoz\altavoz.py", line 73, in volumen
+    raise ValueError("El volumen debe estar entre 0 y 100")
+ValueError: El volumen debe estar entre 0 y 100
+
+##################################################################################
+##################################################################################
+##################################################################################
+##################################################################################
+
+PS C:\Users\vicar.PORTATIL\Documents\Python> & 'C:\Users\vicar.PORTATIL\AppData\Local\Python\pythoncore-3.15-64\python.exe' 'c:/Users/vicar.PORTATIL/Documents/Python/POO/altavoz/main.py'
+Traceback (most recent call last):
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\main.py", line 31, in <module>
+    Altavoz("Salón", 101)
+    ~~~~~~~^^^^^^^^^^^^^^
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\src\altavoz\altavoz.py", line 44, in __init__
+    self.volumen = volumen
+    ^^^^^^^^^^^^
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\src\altavoz\altavoz.py", line 73, in volumen
+    raise ValueError("El volumen debe estar entre 0 y 100")
+ValueError: El volumen debe estar entre 0 y 100
+
+
+##################################################################################
+##################################################################################
+##################################################################################
+##################################################################################
+
+PS C:\Users\vicar.PORTATIL\Documents\Python> & 'C:\Users\vicar.PORTATIL\AppData\Local\Python\pythoncore-3.15-64\python.exe' 'c:/Users/vicar.PORTATIL/Documents/Python/POO/altavoz/main.py'
+Traceback (most recent call last):
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\main.py", line 34, in <module>
+    altavoz.volumen = 25.5
+    ^^^^^^^^^^^^^^^
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\src\altavoz\altavoz.py", line 71, in volumen
+    raise ValueError("El volumen debe ser un numero entero")
+ValueError: El volumen debe ser un numero entero
+
+
+##################################################################################
+##################################################################################
+##################################################################################
+##################################################################################
+
+PS C:\Users\vicar.PORTATIL\Documents\Python> & 'C:\Users\vicar.PORTATIL\AppData\Local\Python\pythoncore-3.15-64\python.exe' 'c:/Users/vicar.PORTATIL/Documents/Python/POO/altavoz/main.py'
+Traceback (most recent call last):
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\main.py", line 37, in <module>
+    altavoz.volumen = "alto"
+    ^^^^^^^^^^^^^^^
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\src\altavoz\altavoz.py", line 71, in volumen
+    raise ValueError("El volumen debe ser un numero entero")
+ValueError: El volumen debe ser un numero entero
+
+
+##################################################################################
+##################################################################################
+##################################################################################
+##################################################################################
+
+PS C:\Users\vicar.PORTATIL\Documents\Python> & 'C:\Users\vicar.PORTATIL\AppData\Local\Python\pythoncore-3.15-64\python.exe' 'c:/Users/vicar.PORTATIL/Documents/Python/POO/altavoz/main.py'
+Traceback (most recent call last):
+  File "c:\Users\vicar.PORTATIL\Documents\Python\POO\altavoz\main.py", line 40, in <module>
+    altavoz.estado = "encendido"
+    ^^^^^^^^^^^^^^
+AttributeError: property 'estado' of 'Altavoz' object has no setter

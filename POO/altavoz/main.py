@@ -19,3 +19,26 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+    
+#####################################################
+# PRUEBAS DIRECTAS
+
+
+#Altavoz("", 50)
+
+#Altavoz("   ", 50)
+
+#Altavoz(25, 50)
+
+#Altavoz("Salón", -1)
+       
+#Altavoz("Salón", 101)
+
+#altavoz = Altavoz("Salón", 50)
+#altavoz.volumen = 25.5
+        
+#altavoz = Altavoz("Salón", 50)
+#altavoz.volumen = "alto"
+      
+#altavoz = Altavoz("Salón", 50)
+#altavoz.estado = "encendido"

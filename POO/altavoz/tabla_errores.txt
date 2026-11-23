@@ -1,0 +1,10 @@
+
+ID	            Resultado obtenido	                                                    ¿Coincide con el esperado?
+test_negat01	ValueError: El nombre no puede estar vacio	                             Sí
+test_negat02	ValueError: El nombre no puede estar vacio	                             Sí
+test_negat03	ValueError: El nombre debe ser cadena de texto	                         Sí
+test_negat04	ValueError: El volumen debe estar entre 0 y 100	                         Sí
+test_negat05	ValueError: El volumen debe estar entre 0 y 100	                         Sí
+test_negat06	ValueError: El volumen debe ser un numero entero	                     Sí
+test_negat07	ValueError: El volumen debe ser un numero entero	                     Sí
+test_negat08	AttributeError: property 'estado' of 'Altavoz' object has no setter	     Sí

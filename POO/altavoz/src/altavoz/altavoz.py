@@ -62,7 +62,7 @@ class Altavoz:
         if not isinstance(nuevo_nombre,str):
             raise ValueError("El nombre debe ser cadena de texto")
         if not nuevo_nombre.strip():
-                    raise ValueError("El nombre no puede estar vacio")
+            raise ValueError("El nombre no puede estar vacio")
         self._nombre = nuevo_nombre.strip()
         
     @volumen.setter

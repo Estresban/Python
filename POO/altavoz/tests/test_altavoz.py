@@ -1,4 +1,3 @@
-from src.altavoz.altavoz import Altavoz
 
 # uv run pytest
 

@@ -70,7 +70,7 @@ class Altavoz:
         if not isinstance(nuevo_volumen,int):
             raise ValueError("El volumen debe ser un numero entero")
         if nuevo_volumen < 0 or nuevo_volumen > 100:
-            raise ValueError("El nombre no puede estar vacio")    
+            raise ValueError("El volumen debe estar entre 0 y 100")    
         self._volumen = nuevo_volumen
         
         

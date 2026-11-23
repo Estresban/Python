@@ -28,10 +28,17 @@ def test_negat04_volumen_negativo():
 def test_negat05_volumen_mayor_100():
     with pytest.raises(ValueError):
         Altavoz("Salón", 101)
-'''
+
 
 # Asignar altavoz.volumen = 25.5
 def test_negat06_volumen_decimal():
     altavoz = Altavoz("Salón", 50)
     with pytest.raises(ValueError):
         altavoz.volumen = 25.5
+        
+'''
+# Asignar altavoz.volumen = "alto"
+def test_negat07_volumen_texto():
+    altavoz = Altavoz("Salón", 50)
+    with pytest.raises(ValueError):
+        altavoz.volumen = "alto"

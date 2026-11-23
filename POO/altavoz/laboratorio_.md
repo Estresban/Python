@@ -346,6 +346,8 @@ Tu código está bastante bien estructurado. Has utilizado correctamente @proper
 
 Voy a revisar cada requisito por separado, sin reescribir la clase completa ni introducir conceptos nuevos.
 1. Comprobación de requisitos
+
+
 | Requisito | Resultado | Observación |
 |---|---|---|
 | Nombre debe ser una cadena | ✅ Cumple | Compruebas `isinstance(nuevo_nombre, str)`. |
@@ -359,6 +361,7 @@ Voy a revisar cada requisito por separado, sin reescribir la clase completa ni i
 | Volumen se consulta mediante propiedad | ✅ Cumple | `@property volumen`. |
 | Valores inválidos generan `ValueError` | ✅ Cumple en las validaciones que has escrito | Hay un caso especial con `bool` en el volumen. |
 | Los setters no provocan recursión | ✅ Cumple | Escribes en atributos internos, no en las propiedades. |
+
 
 
 2. Errores y detalles de validación

@@ -67,34 +67,3 @@ def test_man10_nombre_con_espacios():
     assert altavoz.nombre == "Cocina"
 
 
-
-##########################################
-##########################################
-#   Prueba 2
-##########################################
-##########################################
-
-
-'''
-def test_altavoz_se_crea_bien():
-    altavoz = Altavoz("salita",50)
-    
-    assert altavoz.nombre == 'salita'
-    assert altavoz.volumen == 50
-    assert altavoz.estado == 'Apagado'
-'''
-##########################################
-##########################################
-#   Prueba 3
-##########################################
-##########################################
-    
-'''def test_encender_apagar():
-    altavoz = Altavoz("salita",50)
-    altavoz.encender()
-
-    assert altavoz.nombre == 'salita'
-    assert altavoz.volumen == 50
-    assert altavoz.estado == 'Encendido' '''
-    
-    

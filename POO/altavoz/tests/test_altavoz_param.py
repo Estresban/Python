@@ -1,5 +1,5 @@
 import pytest
-from src.altavoz.altavoz import Altavoz # Ajusta esta importación según cómo se llame tu módulo
+from src.altavoz.altavoz import Altavoz 
 
 
 

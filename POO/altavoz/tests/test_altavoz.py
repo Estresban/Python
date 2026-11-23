@@ -6,7 +6,7 @@
 #   Pruebas  manuales
 ##########################################
 ##########################################
-
+import pytest
 from src.altavoz.altavoz import Altavoz
 
 def test_man01_crear_altavoz_valido():

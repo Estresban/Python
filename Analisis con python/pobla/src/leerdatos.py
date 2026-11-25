@@ -2,6 +2,7 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import sqlite3
 
 from pathlib import Path
 
@@ -14,11 +15,29 @@ matriz = np.array([
     df.iloc[9, 1:26] 
 ], dtype=int)
 
+
+np.set_printoptions(suppress=True, precision=0)
+print ("MATRIZ DE DATOS")
 print (matriz)
 print("\nDimensiones:", matriz.shape)
 
 años = matriz[0]
 poblacion = matriz[1]
+
+df_exportar =pd.DataFrame({
+    "Año":años,
+    "Poblacion":poblacion
+})
+
+archivo_csv = Path(__file__).resolve().parent.parent / "datos/poblacion.csv"
+df_exportar.to_csv(archivo_csv, index=False)
+
+archivo_db = Path(__file__).resolve().parent.parent / "datos/poblacion.db"
+conexion = sqlite3.connect(archivo_db)
+
+df_exportar.to_sql("evolucion_poblacion", conexion, if_exists="replace",index=False)
+
+conexion.close()
 
 print("\n==== Evolución extranjera España ====")
 
